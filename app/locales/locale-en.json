@@ -1,0 +1,28 @@
+{
+    "COMMON:YES": "Yes",
+    "COMMON:NO": "No",
+    "COMMON:LOADING": "loading...",
+    "PAGINATION:PREVIOUS": "Prev",
+    "PAGINATION:NEXT": "Next",
+    "ADMIN:HELP": "Do you need help? Check out our support page!",
+    "ADMIN:MEMBERSHIP:ADD_NEW_MEMBER": "Add new member",
+    "ADMIN:MEMBERSHIP:NEW_MEMBER": "+ New member",
+    "ADMIN:PROJECT_DEFAULT_VALUES": "Default values",
+    "ADMIN:PROJECT_EXPORT:EXPORT": "Export",
+    "ADMIN:PROJECT_EXPORT:DESCRIPTION": "Export your project to save a backup or to create a new one based on this.",
+    "ADMIN:PROJECT_EXPORT:EXPORT_YOUR_PROJECT": "Export your project",
+    "ADMIN:MODULES:MODULES": "Modules",
+    "ADMIN:MODULES:ENABLE": "Enable",
+    "ADMIN:MODULES:DISABLE": "Disable",
+    "ADMIN:MODULES:BACKLOG": "Backlog",
+    "ADMIN:MODULES:BACKLOG_DESCRIPTION": "Manage your user stories to maintain an organized view of upcoming and prioritized work.",
+    "ADMIN:MODULES:KANBAN": "Kanban",
+    "ADMIN:MODULES:KANBAN_DESCRIPTION": "Organize your project in a lean way with this board.",
+    "ADMIN:MODULES:ISSUES": "Issues",
+    "ADMIN:MODULES:ISSUES_DESCRIPTION": "Track the bugs, questions and enhancements related to your project. Don't miss anything!",
+    "ADMIN:MODULES:WIKI": "Wiki",
+    "ADMIN:MODULES:WIKI_DESCRIPTION": "Add, modify, or delete content in collaboration with others. This is the right place for your project documentation.",
+    "ADMIN:MODULES:MEETUP": "Meet Up",
+    "ADMIN:MODULES:MEETUP_DESCRIPTION": "Choose your videoconference system. Even developers need face to face contact."
+
+}

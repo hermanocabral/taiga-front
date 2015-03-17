@@ -236,8 +236,14 @@ configure = ($routeProvider, $locationProvider, $httpProvider, $provide, $tgEven
 
     $compileProvider.debugInfoEnabled(window.taigaConfig.debugInfo || false)
 
-init = ($log, $i18n, $config, $rootscope, $auth, $events, $analytics) ->
-    $i18n.initialize($config.get("defaultLanguage"))
+    $translateProvider.useStaticFilesLoader({
+        prefix: '/locales/locale-',
+        suffix: '.json'
+    })
+
+    $translateProvider.preferredLanguage('en')
+
+init = ($log, $config, $rootscope, $auth, $events, $analytics) ->
     $log.debug("Initialize application")
     $rootscope.contribPlugins = @.taigaContribPlugins
 
@@ -301,7 +307,6 @@ module.config([
 
 module.run([
     "$log",
-    "$tgI18n",
     "$tgConfig",
     "$rootScope",
     "$tgAuth",
