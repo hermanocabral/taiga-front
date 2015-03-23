@@ -1,28 +1,116 @@
 {
-    "COMMON:YES": "Yes",
-    "COMMON:NO": "No",
-    "COMMON:LOADING": "loading...",
-    "PAGINATION:PREVIOUS": "Prev",
-    "PAGINATION:NEXT": "Next",
-    "ADMIN:HELP": "Do you need help? Check out our support page!",
-    "ADMIN:MEMBERSHIP:ADD_NEW_MEMBER": "Add new member",
-    "ADMIN:MEMBERSHIP:NEW_MEMBER": "+ New member",
-    "ADMIN:PROJECT_DEFAULT_VALUES": "Default values",
-    "ADMIN:PROJECT_EXPORT:EXPORT": "Export",
-    "ADMIN:PROJECT_EXPORT:DESCRIPTION": "Export your project to save a backup or to create a new one based on this.",
-    "ADMIN:PROJECT_EXPORT:EXPORT_YOUR_PROJECT": "Export your project",
-    "ADMIN:MODULES:MODULES": "Modules",
-    "ADMIN:MODULES:ENABLE": "Enable",
-    "ADMIN:MODULES:DISABLE": "Disable",
-    "ADMIN:MODULES:BACKLOG": "Backlog",
-    "ADMIN:MODULES:BACKLOG_DESCRIPTION": "Manage your user stories to maintain an organized view of upcoming and prioritized work.",
-    "ADMIN:MODULES:KANBAN": "Kanban",
-    "ADMIN:MODULES:KANBAN_DESCRIPTION": "Organize your project in a lean way with this board.",
-    "ADMIN:MODULES:ISSUES": "Issues",
-    "ADMIN:MODULES:ISSUES_DESCRIPTION": "Track the bugs, questions and enhancements related to your project. Don't miss anything!",
-    "ADMIN:MODULES:WIKI": "Wiki",
-    "ADMIN:MODULES:WIKI_DESCRIPTION": "Add, modify, or delete content in collaboration with others. This is the right place for your project documentation.",
-    "ADMIN:MODULES:MEETUP": "Meet Up",
-    "ADMIN:MODULES:MEETUP_DESCRIPTION": "Choose your videoconference system. Even developers need face to face contact."
-
+    "COMMON": {
+        "YES": "Yes",
+        "NO": "No",
+        "LOADING": "loading...",
+        "SAVE": "Save",
+        "CANCEL": "Cancel",
+        "DELETE": "Delete",
+        "YES": "Yes",
+        "NO": "No",
+        "COPY_TO_CLIPBOARD": "Copy to clipboard: Ctrl+C"
+    },
+    "PAGINATION": {
+        "PREVIOUS": "Prev",
+        "NEXT": "Next"
+    },
+    "ADMIN": {
+        "HELP": "Do you need help? Check out our support page!",
+        "PROJECT_DEFAULT_VALUES": "Default values",
+        "MEMBERSHIP": {
+            "MEMBERSHIP:ADD_NEW_MEMBER": "Add new member",
+            "MEMBERSHIP:NEW_MEMBER": "+ New member"
+        },
+        "PROJECT_EXPORT": {
+            "EXPORT": "Export",
+            "DESCRIPTION": "Export your project to save a backup or to create a new one based on this.",
+            "EXPORT_YOUR_PROJECT": "Export your project"
+        },
+        "MODULES": {
+            "MODULES": "Modules",
+            "ENABLE": "Enable",
+            "DISABLE": "Disable",
+            "BACKLOG": "Backlog",
+            "BACKLOG_DESCRIPTION": "Manage your user stories to maintain an organized view of upcoming and prioritized work.",
+            "KANBAN": "Kanban",
+            "KANBAN_DESCRIPTION": "Organize your project in a lean way with this board.",
+            "ISSUES": "Issues",
+            "ISSUES_DESCRIPTION": "Track the bugs, questions and enhancements related to your project. Don't miss anything!",
+            "WIKI": "Wiki",
+            "WIKI_DESCRIPTION": "Add, modify, or delete content in collaboration with others. This is the right place for your project documentation.",
+            "MEETUP": "Meet Up",
+            "MEETUP_DESCRIPTION": "Choose your videoconference system. Even developers need face to face contact.",
+            "SELECT_VIDEOCONFERENCE": "Select a videoconference system",
+            "SALT_CHAT_ROOM": "If you want you can append a salt code to the name of the chat room"
+        },
+        "PROJECT_PROFILE": {
+            "PROJECT_DETAILS": "Project details",
+            "PROJECT_NAME": "Project name",
+            "PROJECT_SLUG": "Project slug",
+            "NUMBER_SPRINTS": "Number of sprints",
+            "NUMBER_US_POINTS": "Number of US points",
+            "DESCRIPTION": "DESCRIPTION",
+            "PUBLIC_PROJECT": "Public project",
+            "PRIVATE_PROJECT": "Private project",
+            "DELETE": "Delete this project"
+        },
+        "REPORTS": {
+            "TITLE": "Reports",
+            "SUBTITLE": "Export your project data in CSV format and make your own reports.",
+            "DESCRIPTION": "Download a CSV file or copy the generated URL and open it in your favourite text editor or spreadsheet to make your own project data reports. You will be able to visualize and analize all your data easily.",
+            "HELP": "How to use this on my own spreadsheet?"
+        },
+        "CUSTOM_FIELDS": {
+            "SUBTITLE": "Specify the custom fields for your user stories, tasks and issues",
+            "US_DESCRIPTION": "User stories custom fields",
+            "US_ADD": "Add a custom field in user stories",
+            "TASK_DESCRIPTION": "Tasks custom fields",
+            "TASK_ADD": "Add a custom field in tasks",
+            "ISSUE_DESCRIPTION": "Issues custom fields",
+            "ISSUE_ADD": "Add a custom field in issues"
+        },
+        "PROJECT_VALUES_POINTS": {
+            "TITLE": "Us points",
+            "SUBTITLE": "Specify the points your user stories could be estimated to"
+        },
+        "PROJECT_VALUES_PRIORITIES": {
+            "TITLE": "Issue priorities",
+            "SUBTITLE": "Specify the priorities your issues will have"
+        },
+        "PROJECT_VALUES_SEVERITIES": {
+            "TITLE": "Issue severities",
+            "SUBTITLE": "Specify the severities your issues will have"
+        },
+        "PROJECT_VALUES_STATUS": {
+            "SUBTITLE": "Specify the statuses your user stories, tasks and issues will go through",
+            "US": "US Statuses",
+            "TASK": "Task Statuses",
+            "ISSUE": "Issue Statuses"
+        },
+        "PROJECT_VALUES_TYPES": {
+            "TITLE": "Issues types",
+            "SUBTITLE": "Specify the types your user stories could be estimated to"
+        },
+        "ROLES": {
+            "WARNING_NO_ROLE": "Be careful, no role in your project will be able to estimate the point value for user stories",
+            "HELP_ROLE_ENABLED": "When enabled, members assigned to this role will be able to estimate the point value for user stories",
+            "COUNT_MEMBERS": "{{ role.members_count }} members with this role"
+        },
+        "THIRD_PARTIES": {
+            "SECRET_KEY": "Secret key",
+            "PAYLOAD_URL": "Payload URL"
+        },
+        "BITBUCKET": {
+            "VALID_IPS": "Valid origin ips (separated by ,)",
+            "INFO_VERIFYING_IP": "Bitbucket requests are not signed so the best way of verifying the origin is by IP. If the field is empty there will be no IP validation."
+        }
+    },
+    "LIGHTBOX": {
+        "DELETE_PROJECT": {
+            "TITLE": "Delete project",
+            "QUESTION": "Are you sure you want to delete this project?",
+            "SUBTITLE": "All project data US/Tasks/Issues/Sprints/WikiPages will be lost! :-(",
+            "CONFIRM": "Yes, I'm really sure"
+        }
+    }
 }

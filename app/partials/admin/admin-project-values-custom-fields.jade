@@ -7,19 +7,19 @@ div.wrapper(ng-controller="ProjectValuesSectionController")
 
     section.main.admin-common.admin-attributes
         include ../includes/components/mainTitle
-        p.admin-subtitle(translate) Specify the custom fields for your user stories, tasks and issues
+        p.admin-subtitle(translate="ADMIN.CUSTOM_FIELDS.SUBTITLE")
 
         div.admin-attributes-section(tg-project-custom-attributes,
                                      ng-controller="ProjectCustomAttributesController as ctrl",
-                                     ng-init="type='userstory'; customFieldSectionTitle=('User stories custom fields' | translate); customFieldButtonTitle=('Add a custom field in user stories' | translate)")
+                                     ng-init="type='userstory'; customFieldSectionTitle=('ADMIN.CUSTOM_FIELDS.US_DESCRIPTION' | translate); customFieldButtonTitle=('ADMIN.CUSTOM_FIELDS.US_ADD' | translate)")
             include ../includes/modules/admin/admin-custom-attributes
 
         div.admin-attributes-section(tg-project-custom-attributes,
                                      ng-controller="ProjectCustomAttributesController as ctrl",
-                                     ng-init="type='task'; customFieldSectionTitle=('Tasks custom fields' | translate); customFieldButtonTitle=('Add a custom field in tasks' | translate)")
+                                     ng-init="type='task'; customFieldSectionTitle=('ADMIN.CUSTOM_FIELDS.TASK_DESCRIPTION' | translate); customFieldButtonTitle=('ADMIN.CUSTOM_FIELDS.TASK_ADD' | translate)")
             include ../includes/modules/admin/admin-custom-attributes
 
         div.admin-attributes-section(tg-project-custom-attributes,
                                      ng-controller="ProjectCustomAttributesController as ctrl",
-                                     ng-init="type='issue'; customFieldSectionTitle=('Issues custom fields' | translate); customFieldButtonTitle=('Add a custom field in issues' | translate)")
+                                     ng-init="type='issue'; customFieldSectionTitle=('ADMIN.CUSTOM_FIELDS.ISSUE_DESCRIPTION' | translate); customFieldButtonTitle=('ADMIN.CUSTOM_FIELDS.ISSUE_ADD' | translate)")
             include ../includes/modules/admin/admin-custom-attributes
