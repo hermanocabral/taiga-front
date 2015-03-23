@@ -50,7 +50,6 @@ class MembershipsController extends mixOf(taiga.Controller, taiga.PageMixin, tai
                   @location, @navUrls, @analytics, @appTitle) ->
         bindMethods(@)
 
-        @scope.sectionName = "Manage Members" #i18n
         @scope.project = {}
         @scope.filters = {}
 

@@ -68,15 +68,20 @@
     },
     "ADMIN": {
         "HELP": "Do you need help? Check out our support page!",
-        "PROJECT_DEFAULT_VALUES": "Default values",
-        "MEMBERSHIP": {
-            "MEMBERSHIP:ADD_NEW_MEMBER": "Add new member",
-            "MEMBERSHIP:NEW_MEMBER": "+ New member"
+        "PROJECT_DEFAULT_VALUES": {
+            "TITLE": "Default Values",
+            "SUBTITLE": "Set default values for all selector inputs."
+        },
+        "MEMBERSHIPS": {
+            "TITLE": "Manage members",
+            "ADD_BUTTON": "+ New member",
+            "ADD_BUTTON_TITLE": "Add new member"
         },
         "PROJECT_EXPORT": {
-            "EXPORT": "Export",
-            "DESCRIPTION": "Export your project to save a backup or to create a new one based on this.",
-            "EXPORT_YOUR_PROJECT": "Export your project"
+            "TITLE": "Export",
+            "SUBTITLE": "Export your project to save a backup or to create a new one based on this.",
+            "EXPORT_BUTTON": "Export",
+            "EXPORT_BUTTON_TITLE": "Export your project"
         },
         "MODULES": {
             "MODULES": "Modules",
@@ -113,6 +118,7 @@
             "HELP": "How to use this on my own spreadsheet?"
         },
         "CUSTOM_FIELDS": {
+            "TITLE": "Custom Fields",
             "SUBTITLE": "Specify the custom fields for your user stories, tasks and issues",
             "US_DESCRIPTION": "User stories custom fields",
             "US_ADD": "Add a custom field in user stories",
@@ -134,14 +140,16 @@
             "SUBTITLE": "Specify the severities your issues will have"
         },
         "PROJECT_VALUES_STATUS": {
+            "TITLE": "Status",
             "SUBTITLE": "Specify the statuses your user stories, tasks and issues will go through",
-            "US": "US Statuses",
-            "TASK": "Task Statuses",
-            "ISSUE": "Issue Statuses"
+            "US_TITLE": "US Statuses",
+            "TASK_TITLE": "Task Statuses",
+            "ISSUE_TITLE": "Issue Statuses"
         },
         "PROJECT_VALUES_TYPES": {
-            "TITLE": "Issues types",
-            "SUBTITLE": "Specify the types your user stories could be estimated to"
+            "TITLE": "Types",
+            "SUBTITLE": "Specify the types your user stories could be estimated to",
+            "ISSUE_TITLE": "Issues types"
         },
         "ROLES": {
             "WARNING_NO_ROLE": "Be careful, no role in your project will be able to estimate the point value for user stories",
