@@ -4,18 +4,18 @@
 <% } %>
 
 .assigned-to
-    span.assigned-title(translate) Assigned to
+    span.assigned-title(translate="COMMON.ASSIGNED_TO.TITLE")
 
     a(href="" title="edit assignment", class!="user-assigned <% if(isEditable){ %>editable<% }; %>")
         span.assigned-name
         <% if (assignedTo) { %>
         <%- assignedTo.full_name_display %>
         <% } else { %>
-        | {{'Not assigned' | translate}}
+        | {{'COMMON.ASSIGNED_TO.TITLE' | translate}}
         <% } %>
         <% if(isEditable){ %>
         span.icon.icon-arrow-bottom
         <% }; %>
     <% if (assignedTo!==null && isEditable) { %>
-    a.icon.icon-delete(href="" title="{{'Delete assignment' | translate}}")
+    a.icon.icon-delete(href="" title="{{'COMMON.ASSIGNED_TO.DELETE_ASSIGNMENT' | translate}}")
     <% } %>

@@ -8,7 +8,59 @@
         "DELETE": "Delete",
         "YES": "Yes",
         "NO": "No",
-        "COPY_TO_CLIPBOARD": "Copy to clipboard: Ctrl+C"
+        "COPY_TO_CLIPBOARD": "Copy to clipboard: Ctrl+C",
+        "EDIT": "Edit",
+        "DRAG": "Drag",
+        "TAG_LINE": "Your agile, free, and open source project management tool",
+        "TAG_LINE_2": "LOVE YOUR PROJECT",
+        "BLOCK": "Block",
+        "UNBLOCK": "Unblock",
+        "CREATED_BY": "Created by {{fullDisplayName}}",
+        "FROM": "From",
+        "TO": "To",
+        "DESCRIPTION": {
+            "EMPTY": "Empty space is so boring... go on be descriptive... A rose by any other name would smell as sweet...",
+            "MARDOWN_HELP": "Markown syntax help",
+            "NO_DESCRIPTION": "No description yet"
+        },
+        "FIELDS": {
+            "NAME": "Name",
+            "URL": "URL"
+        },
+        "ROLES": {
+            "ALL": "All"
+        },
+        "ASSIGNED_TO": {
+            "TITLE": "Assigned to",
+            "NOT_ASSIGNED": "Not assigned",
+            "DELETE_ASSIGNMENT": "Delete assignment"
+        },
+        "STATUS": {
+            "CLOSED": "Closed",
+            "OPEN": "Open"
+        },
+        "WATCHERS": {
+            "ADD": "Add watcher",
+            "TITLE": "watchers",
+            "DELETE": "delete watcher"
+        }
+    },
+    "AUTH": {
+        "INVITED_YOU": "has invited you to join the project",
+        "NOT_REGISTERED_YET": "Not registered yet?",
+        "REGISTER": "Register",
+        "CREATE_ACCOUNT": "create your free account here"
+    },
+    "ATTACHMENT": {
+        "SECTION_NAME": "attachments",
+        "TITLE": "<%- name %> uploaded on <%- created_date %>",
+        "DESCIPTION": "Type a short description",
+        "DEPRECATED_FILE": "Deprecated?",
+        "ADD": "Add new attachment. <%- maxFileSizeMsg %>",
+        "MAX_FILE_SIZE": "[Max. size:  {{maxFileSize}}]",
+        "SHOW_DEPRECATED": "+ show deprecated atachments",
+        "HIDE_DEPRECATED": "- hide deprecated atachments",
+        "COUNT_DEPRECATED": "({{ctrl.deprecatedAttachmentsCount }} deprecated)"
     },
     "PAGINATION": {
         "PREVIOUS": "Prev",
@@ -98,11 +150,33 @@
         },
         "THIRD_PARTIES": {
             "SECRET_KEY": "Secret key",
-            "PAYLOAD_URL": "Payload URL"
+            "PAYLOAD_URL": "Payload URL",
+            "VALID_IPS": "Valid origin ips (separated by ,)"
         },
         "BITBUCKET": {
-            "VALID_IPS": "Valid origin ips (separated by ,)",
             "INFO_VERIFYING_IP": "Bitbucket requests are not signed so the best way of verifying the origin is by IP. If the field is empty there will be no IP validation."
+        },
+        "GITLAB": {
+            "INFO_VERIFYING_IP": "Gitlab requests are not signed so the best way of verifying the origin is by IP. If the field is empty there will be no IP validation."
+        },
+        "WEBHOOKS": {
+            "SUBTITLE": "Webhooks notify external services about events in Taiga, like comments, user stories....",
+            "ADD_NEW": "Add a New Webhook",
+            "TYPE_NAME": "Type the service name",
+            "TYPE_PAYLOAD_URL": "Type the service payload url",
+            "TYPE_SERVICE_SECRET": "Type the service secret key",
+            "SAVE": "Save Webhook",
+            "CANCEL": "Cancel Webhook",
+            "TOGGLE_HISTORY": "Toggle history",
+            "SHOW_HISTORY": "(Show history)",
+            "TEST": "Test Webhook",
+            "EDIT": "Edit Webhook",
+            "DELETE": "Delete Webhook",
+            "REQUEST": "Request",
+            "RESEND_REQUEST": "Resend request",
+            "HEADERS": "Headers",
+            "PAYLOAD": "Payload",
+            "RESPONSE": "Response"
         }
     },
     "LIGHTBOX": {
@@ -111,6 +185,47 @@
             "QUESTION": "Are you sure you want to delete this project?",
             "SUBTITLE": "All project data US/Tasks/Issues/Sprints/WikiPages will be lost! :-(",
             "CONFIRM": "Yes, I'm really sure"
+        },
+        "ASSIGNED_TO": {
+            "SELECT": "Select assigned to",
+            "SEARCH": "Search for users"
         }
+    },
+    "US": {
+        "TOTAL_POINTS": "total"
+    },
+    "COMMENTS": {
+        "DELETED_INFO": "Comment deleted by {{deleteCommentUser}} on {{deleteCommentDate}}",
+        "TITLE": "Comments",
+        "COMMENT": "Comment",
+        "TYPE_NEW_COMMENT": "Type a new comment here",
+        "DELETED": "Comment deleted by {{deleteCommentUser}} on {{deleteCommentDate}}",
+        "SHOW_DELETED": "Show deleted comment",
+        "HIDE_DELETED": "Hide deleted comment",
+        "RESTORE": "Restore comment"
+    },
+    "ACTIVITY": {
+        "SHOW_ACTIVITY": "Show activity",
+        "SHOW_MORE": "+ Show previous entries ({{showMore}} more)",
+        "TITLE": "Activity",
+        "REMOVED": "removed",
+        "ADDED": "added",
+        "US_POINTS": "US points ({{name}})"
+    },
+    "BACKLOG": {
+        "MOVE_US_TO_CURRENT_SPRINT": "Move to Current Sprint",
+        "SHOW_FILTERS": "Show filters",
+        "SHOW_TAGS": "Show tags",
+        "EMPTY": "Your backlog is empty!",
+        "CREATE_NEW_US": "Create a new US",
+        "CREATE_NEW_US_EMPTY_HELP": "You may want to create a new user story",
+        "EXCESS_OF_POINTS": "Excess of points",
+        "PENDING_POINTS": "Pending Points",
+        "CLOSED_POINTS": "Closed points",
+        "COMPACT_SPRINT": "Compact Sprint",
+        "GO_TO_TASKBOARD": "Go to the taskboard of {{::name}}",
+        "EDIT_SPRINT": "Edit Sprint",
+        "CLOSED_POINTS": "closed",
+        "TOTAL_POINTS": "total"
     }
 }

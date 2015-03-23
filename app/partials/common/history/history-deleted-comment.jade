@@ -1,11 +1,11 @@
 .activity-single.comment.deleted-comment
     div
-        span(translate, translate-values!="{deleteCommentUser: '<%- deleteCommentUser %>', deleteCommentDate: '<%- deleteCommentDate %>'}") Comment deleted by {{deleteCommentUser}} on {{deleteCommentDate}}
-        a(href="", title="{{'Show deleted comment' | translate}}", class="show-deleted-comment", translate) (Show deleted comment)
-        a(href="", title="{{'Hide deleted comment' | translate}}", class="hide-deleted-comment hidden", translate) (Hide deleted comment)</a>
+        span(translate="COMMENTS.DELETED", translate-values!="{deleteCommentUser: '<%- deleteCommentUser %>', deleteCommentDate: '<%- deleteCommentDate %>'}")
+        a(href="", title="{{'COMMENTS.SHOW_DELETED' | translate}}", class="show-deleted-comment", translate="COMMENTS.SHOW_DELETED")
+        a(href="", title="{{'COMMENTS.HIDE_DELETED' | translate}}", class="hide-deleted-comment hidden", translate="COMMENTS.HIDE_DELETED")
         .comment-body.wysiwyg <%= deleteComment %>
     <% if (canRestoreComment) { %>
     a(href="", class="comment-restore", data-activity-id!="<%- activityId %>")
         span.icon.icon-reload
-        span(translate) Restore comment
+        span(translate="COMMENTS.RESTORE")
     <% } %>

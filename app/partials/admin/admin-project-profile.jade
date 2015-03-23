@@ -49,7 +49,7 @@ div.wrapper(tg-project-profile, ng-controller="ProjectProfileController as ctrl"
                             span(translate="ADMIN.PROJECT_PROFILE.PRIVATE_PROJECT")
 
             button.button-green.submit-button(type="submit", title="{{'COMMON.SAVE' | translate}}", translate="COMMON.SAVE")
-            a.delete-project(href="", title="{{'Delete this project' | translate}}", ng-click="ctrl.openDeleteLightbox()", translate="ADMIN.PROJECT_PROFILE.DELETE")
+            a.delete-project(href="", title="{{'ADMIN.PROJECT_PROFILE.DELETE' | translate}}", ng-click="ctrl.openDeleteLightbox()", translate="ADMIN.PROJECT_PROFILE.DELETE")
 
 div.lightbox.lightbox-delete-project(tg-lb-delete-project)
     include ../includes/modules/lightbox-delete-project
