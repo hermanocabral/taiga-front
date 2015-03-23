@@ -10,16 +10,16 @@ div.wrapper(ng-controller="ProjectValuesSectionController")
         p.admin-subtitle(translate="ADMIN.PROJECT_VALUES_STATUS.SUBTITLE")
 
         div.admin-attributes-section(tg-project-values, ng-controller="ProjectValuesController as ctrl",
-            ng-init="section='admin'; resource='userstories'; type='userstory-statuses'; sectionName=('ADMIN.PROJECT_VALUES_STATUS.US' | translate)",
+            ng-init="section='admin'; resource='userstories'; type='userstory-statuses'; sectionName='ADMIN.PROJECT_VALUES_STATUS.US'",
             type="userstory-statuses")
             include ../includes/modules/admin/project-us-status
 
         div.admin-attributes-section(tg-project-values, ng-controller="ProjectValuesController as ctrl",
-            ng-init="section='admin'; resource='tasks'; type='task-statuses'; sectionName=('ADMIN.PROJECT_VALUES_STATUS.TASK' | translate)",
+            ng-init="section='admin'; resource='tasks'; type='task-statuses'; sectionName='ADMIN.PROJECT_VALUES_STATUS.TASK'",
             type="task-statuses")
             include ../includes/modules/admin/project-status
 
         div.admin-attributes-section(tg-project-values, ng-controller="ProjectValuesController as ctrl",
-            ng-init="section='admin'; resource='issues'; type='issue-statuses'; sectionName=('ADMIN.PROJECT_VALUES_STATUS.ISSUE' | translate)",
+            ng-init="section='admin'; resource='issues'; type='issue-statuses'; sectionName='ADMIN.PROJECT_VALUES_STATUS.ISSUE'",
             type="issue-statuses")
             include ../includes/modules/admin/project-status

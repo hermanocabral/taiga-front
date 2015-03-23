@@ -251,7 +251,8 @@ WatchersDirective = ($rootscope, $confirm, $repo, $qqueue, $template, $compile) 
 
     return {link:link, require:"ngModel"}
 
-module.directive("tgWatchers", ["$rootScope", "$tgConfirm", "$tgRepo", "$tgQqueue", "$tgTemplate", "$compile", WatchersDirective])
+module.directive("tgWatchers", ["$rootScope", "$tgConfirm", "$tgRepo", "$tgQqueue", "$tgTemplate", "$compile",
+                                WatchersDirective])
 
 
 #############################################################################
@@ -330,7 +331,8 @@ AssignedToDirective = ($rootscope, $confirm, $repo, $loading, $qqueue, $template
         require:"ngModel"
     }
 
-module.directive("tgAssignedTo", ["$rootScope", "$tgConfirm", "$tgRepo", "$tgLoading", "$tgQqueue", "$tgTemplate", AssignedToDirective])
+module.directive("tgAssignedTo", ["$rootScope", "$tgConfirm", "$tgRepo", "$tgLoading", "$tgQqueue", "$tgTemplate",
+                                  AssignedToDirective])
 
 
 #############################################################################
@@ -475,7 +477,6 @@ EditableSubjectDirective = ($rootscope, $repo, $confirm, $loading, $qqueue, $tem
         $el.find('div.edit-subject').hide()
         $el.find('div.view-subject span.edit').hide()
 
-
         $scope.$watch $attrs.ngModel, (value) ->
             return if not value
             $scope.item = value
@@ -494,7 +495,8 @@ EditableSubjectDirective = ($rootscope, $repo, $confirm, $loading, $qqueue, $tem
         template: template
     }
 
-module.directive("tgEditableSubject", ["$rootScope", "$tgRepo", "$tgConfirm", "$tgLoading", "$tgQqueue", "$tgTemplate", EditableSubjectDirective])
+module.directive("tgEditableSubject", ["$rootScope", "$tgRepo", "$tgConfirm", "$tgLoading", "$tgQqueue",
+                                       "$tgTemplate", EditableSubjectDirective])
 
 
 #############################################################################
@@ -573,8 +575,8 @@ EditableDescriptionDirective = ($rootscope, $repo, $confirm, $compile, $loading,
         template: template
     }
 
-module.directive("tgEditableDescription", ["$rootScope", "$tgRepo", "$tgConfirm",
-                                           "$compile", "$tgLoading", "$selectedText", "$tgQqueue", "$tgTemplate", EditableDescriptionDirective])
+module.directive("tgEditableDescription", ["$rootScope", "$tgRepo", "$tgConfirm", "$compile", "$tgLoading",
+                                            "$selectedText", "$tgQqueue", "$tgTemplate", EditableDescriptionDirective])
 
 
 #############################################################################
@@ -584,13 +586,15 @@ module.directive("tgEditableDescription", ["$rootScope", "$tgRepo", "$tgConfirm"
 ##       completely bindonce, they only serves for visualization of data.
 #############################################################################
 
-ListItemIssueStatusDirective = ->
+ListItemUsStatusDirective = ->
     link = ($scope, $el, $attrs) ->
-        issue = $scope.$eval($attrs.tgListitemIssueStatus)
-        bindOnce $scope, "issueStatusById", (issueStatusById) ->
-            $el.html(issueStatusById[issue.status].name)
+        us = $scope.$eval($attrs.tgListitemUsStatus)
+        bindOnce $scope, "usStatusById", (usStatusById) ->
+            $el.html(usStatusById[us.status].name)
 
     return {link:link}
+
+module.directive("tgListitemUsStatus", ListItemUsStatusDirective)
 
 
 ListItemTaskStatusDirective = ->
@@ -601,14 +605,7 @@ ListItemTaskStatusDirective = ->
 
     return {link:link}
 
-
-ListItemUsStatusDirective = ->
-    link = ($scope, $el, $attrs) ->
-        us = $scope.$eval($attrs.tgListitemUsStatus)
-        bindOnce $scope, "usStatusById", (usStatusById) ->
-            $el.html(usStatusById[us.status].name)
-
-    return {link:link}
+module.directive("tgListitemTaskStatus", ListItemTaskStatusDirective)
 
 
 ListItemAssignedtoDirective = ($template) ->
@@ -629,6 +626,41 @@ ListItemAssignedtoDirective = ($template) ->
     return {link:link}
 
 module.directive("tgListitemAssignedto", ["$tgTemplate", ListItemAssignedtoDirective])
+
+
+ListItemIssueStatusDirective = ->
+    link = ($scope, $el, $attrs) ->
+        issue = $scope.$eval($attrs.tgListitemIssueStatus)
+        bindOnce $scope, "issueStatusById", (issueStatusById) ->
+            $el.html(issueStatusById[issue.status].name)
+
+    return {link:link}
+
+module.directive("tgListitemIssueStatus", ListItemIssueStatusDirective)
+
+
+ListItemTypeDirective = ->
+    link = ($scope, $el, $attrs) ->
+        render = (issueTypeById, issue) ->
+            type = issueTypeById[issue.type]
+            domNode = $el.find(".level")
+            domNode.css("background-color", type.color)
+            domNode.attr("title", type.name)
+
+        bindOnce $scope, "issueTypeById", (issueTypeById) ->
+            issue = $scope.$eval($attrs.tgListitemType)
+            render(issueTypeById, issue)
+
+        $scope.$watch $attrs.tgListitemType, (issue) ->
+            render($scope.issueTypeById, issue)
+
+    return {
+        link: link
+        templateUrl: "common/components/level.html"
+    }
+
+module.directive("tgListitemType", ListItemTypeDirective)
+
 
 ListItemPriorityDirective = ->
     link = ($scope, $el, $attrs) ->
@@ -652,6 +684,7 @@ ListItemPriorityDirective = ->
 
 module.directive("tgListitemPriority", ListItemPriorityDirective)
 
+
 ListItemSeverityDirective = ->
     link = ($scope, $el, $attrs) ->
         render = (severityById, issue) ->
@@ -672,26 +705,7 @@ ListItemSeverityDirective = ->
         templateUrl: "common/components/level.html"
     }
 
-
-ListItemTypeDirective = ->
-    link = ($scope, $el, $attrs) ->
-        render = (issueTypeById, issue) ->
-            type = issueTypeById[issue.type]
-            domNode = $el.find(".level")
-            domNode.css("background-color", type.color)
-            domNode.attr("title", type.name)
-
-        bindOnce $scope, "issueTypeById", (issueTypeById) ->
-            issue = $scope.$eval($attrs.tgListitemType)
-            render(issueTypeById, issue)
-
-        $scope.$watch $attrs.tgListitemType, (issue) ->
-            render($scope.issueTypeById, issue)
-
-    return {
-        link: link
-        templateUrl: "common/components/level.html"
-    }
+module.directive("tgListitemSeverity", ListItemSeverityDirective)
 
 
 #############################################################################
@@ -719,35 +733,27 @@ TgProgressBarDirective = ($template) ->
 
 module.directive("tgProgressBar", ["$tgTemplate", TgProgressBarDirective])
 
+
 #############################################################################
 ## Main title directive
 #############################################################################
 
-TgMainTitleDirective = ($template) ->
-    template = $template.get("common/components/main-title.html", true)
-
-    render = (el, projectName, sectionName) ->
-        el.html(template({
-            projectName: projectName
-            sectionName: sectionName
-        }))
+TgMainTitleDirective = ($translate) ->
     link = ($scope, $el, $attrs) ->
-        element = angular.element($el)
-        $scope.$watch "project", (project) ->
-            render($el, project.name, $scope.sectionName) if project
-
-        $scope.$on "project:loaded", (ctx, project) =>
-            render($el, project.name, $scope.sectionName)
+        $attrs.$observe "i18nSectionName", (i18nSectionName) ->
+            trans = $translate(i18nSectionName)
+            trans.then (sectionName) -> $scope.sectionName = sectionName
+            trans.catch (sectionName) -> $scope.sectionName = sectionName
 
         $scope.$on "$destroy", ->
             $el.off()
 
-    return {link: link}
+    return {
+        link: link
+        templateUrl: "common/components/main-title.html"
+        scope: {
+            projectName : "=projectName"
+        }
+    }
 
-module.directive("tgMainTitle", ["$tgTemplate", TgMainTitleDirective])
-
-module.directive("tgListitemType", ListItemTypeDirective)
-module.directive("tgListitemIssueStatus", ListItemIssueStatusDirective)
-module.directive("tgListitemSeverity", ListItemSeverityDirective)
-module.directive("tgListitemTaskStatus", ListItemTaskStatusDirective)
-module.directive("tgListitemUsStatus", ListItemUsStatusDirective)
+module.directive("tgMainTitle", ["$translate",  TgMainTitleDirective])
