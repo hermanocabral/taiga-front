@@ -6,6 +6,7 @@
         "SAVE": "Save",
         "CANCEL": "Cancel",
         "DELETE": "Delete",
+        "ADD": "Add",
         "YES": "Yes",
         "NO": "No",
         "COPY_TO_CLIPBOARD": "Copy to clipboard: Ctrl+C",
@@ -18,6 +19,18 @@
         "CREATED_BY": "Created by {{fullDisplayName}}",
         "FROM": "From",
         "TO": "To",
+        "CLOSE": "close",
+        "BLOCKED_NOTE": "Why is this user story blocked?",
+        "BLOCKED_REASON": "Please explain the reason",
+        "GO_HOME": "Take me home",
+        "PLUGINS": "Plugins",
+        "BETA": "We are on beta!",
+            "IOCAINE_TEXT": "Feeling a bit overwhelmed by a task? Make sure others know about it by clicking on Iocaine when editing a task. It's possible to become immune to this (fictional) deadly poison by consuming small amounts over time just as it's possible to get better at what you do by occasionally taking on extra challenges!",
+        "TAGS": {
+            "PLACEHOLDER": "I'm it! Tag me...",
+            "DELETE": "delete tag",
+            "ADD": "Add tag"
+        },
         "DESCRIPTION": {
             "EMPTY": "Empty space is so boring... go on be descriptive... A rose by any other name would smell as sweet...",
             "MARDOWN_HELP": "Markown syntax help",
@@ -25,7 +38,11 @@
         },
         "FIELDS": {
             "NAME": "Name",
-            "URL": "URL"
+            "URL": "URL",
+            "DESCRIPTION": "Description",
+            "VALUE": "Value",
+            "SLUG": "Slug",
+            "COLOR": "Color"
         },
         "ROLES": {
             "ALL": "All"
@@ -33,7 +50,9 @@
         "ASSIGNED_TO": {
             "TITLE": "Assigned to",
             "NOT_ASSIGNED": "Not assigned",
-            "DELETE_ASSIGNMENT": "Delete assignment"
+            "DELETE_ASSIGNMENT": "Delete assignment",
+            "REMOVE_ASSIGNED": "Remove assigned",
+            "TOO_MANY": "...too many users, keep filtering"
         },
         "STATUS": {
             "CLOSED": "Closed",
@@ -43,6 +62,11 @@
             "ADD": "Add watcher",
             "TITLE": "watchers",
             "DELETE": "delete watcher"
+        },
+        "CUSTOM_ATTRIBUTES": {
+            "CUSTOM_FIELDS": "Custom Fields",
+            "SAVE": "Save Custom Field",
+            "EDIT": "Edit Custom Field"
         }
     },
     "AUTH": {
@@ -84,7 +108,7 @@
             "EXPORT_BUTTON_TITLE": "Export your project"
         },
         "MODULES": {
-            "MODULES": "Modules",
+            "TITLE": "Modules",
             "ENABLE": "Enable",
             "DISABLE": "Disable",
             "BACKLOG": "Backlog",
@@ -185,7 +209,95 @@
             "HEADERS": "Headers",
             "PAYLOAD": "Payload",
             "RESPONSE": "Response"
-        }
+        },
+        "CUSTOM_ATTRIBUTES": {
+            "ADD": "Add custom field",
+            "EDIT": "Edit Custom Field",
+            "DELETE": "Delete Custom Field",
+            "SAVE_TITLE": "Save Custom Field",
+            "CANCEL_TITLE": "Cancel creation",
+            "SET_FIELD_NAME": "Set your custom field name",
+            "SET_FIELD_DESCRIPTION": "Set your custom field description",
+            "ACTION_UPDATE": "Update Custom Field",
+            "ACTION_CANCEL_EDITION": "Cancel edition"
+        },
+        "MEMBERSHIP": {
+            "COLUMN_MEMBER": "Member",
+            "COLUMN_ADMIN": "Admin",
+            "COLUMN_ROLE": "Role",
+            "COLUMN_STATUS": "Status"
+        },
+        "DEFAULT_VALUES": {
+            "LABEL_POINTS": "Default value for points selector",
+            "LABEL_US": "Default value for US status selector",
+            "LABEL_TASK_STATUS": "Default value for task status selector",
+            "LABEL_PRIORITY": "Default value for priority selector",
+            "LABEL_SEVERITY": "Default value for severity selector",
+            "LABEL_ISSUE_TYPE": "Default value for issue type selector",
+            "LABEL_ISSUE_STATUS": "Default value for issue status selector"
+        },
+        "PROJECT": {
+            "TITLE_ACTION_EDIT_VALUE": "Edit value",
+            "TITLE_ACTION_DELETE_VALUE": "Delete value"
+        },
+        "CSV": {
+            "TITLE": "#{csvType} reports",
+            "DOWNLOAD": "Download CSV",
+            "URL_FIELD_PLACEHOLDER": "Please regenerate CSV url",
+            "TITLE_REGENERATE_URL": "Regenerate CSV url",
+            "ACTION_GENERATE_URL": "Generate Url",
+            "ACTION_REGENERATE": "Regenerate"
+        },
+        "STATUS": {
+            "IS_CLOSED_COLUMN": "Is closed?",
+            "TITLE_ACTION_EDIT_VALUE": "Edit value",
+            "TITLE_ACTION_DELETE_VALUE": "Delete value",
+            "PLACEHOLDER_WRITE_STATUS_NAME": "Write a name for the new status"
+        },
+        "TYPES": {
+            "TITLE_ACTION_EDIT_VALUE": "Edit value",
+            "TITLE_ACTION_DELETE_VALUE": "Delete value",
+            "PLACEHOLDER_WRITE_NAME": "Write a name for the new element"
+        },
+        "US_STATUS": {
+            "ACTION_ADD_STATUS": "Add new status",
+            "IS_CLOSED_COLUMN": "Is closed?",
+            "IS_ARCHIVED_COLUMN": "Is archived?",
+            "WIP_LIMIT_COLUMN": "WIP Limit",
+            "PLACEHOLDER_WRITE_NAME": "Write a name for the new status"
+        },
+        "MENU": {
+            "TITLE": "Admin",
+            "PROJECT": "Project",
+            "ATTRIBUTES": "Attributes",
+            "MEMBERS": "Members",
+            "PERMISSIONS": "Permissions",
+            "INTEGRATIONS": "Integrations",
+            "PLUGINS": "Plugins"
+        },
+        "SUBMENU": {
+            "ROLE_UX": "UX",
+            "ROLE_PRODUCT_OWNER": "Product Owner",
+            "ROLE_DESIGNER": "Designer",
+            "ROLE_BACK": "Back",
+            "ROLE_FRONT": "Front",
+            "ACTION_NEW_ROLE": "+ New role",
+            "TITLE_ACTION_NEW_ROLE": "Add new role"
+        },
+        "SUBMENU_PROJECT_VALUES": {
+            "STATUS": "Status",
+            "POINTS": "Points",
+            "PRIORITIES": "Priorities",
+            "SEVERITIES": "Severities",
+            "TYPES": "Types",
+            "CUSTOM_FIELDS": "Custom fields"
+        },
+        "SUBMENU_ROLES": {
+            "TITLE": "Roles"
+        },
+        "SUBMENU_THIRDPARTIES": {
+            "TITLE": "Roles"
+        },
     },
     "LIGHTBOX": {
         "DELETE_PROJECT": {
@@ -196,11 +308,13 @@
         },
         "ASSIGNED_TO": {
             "SELECT": "Select assigned to",
-            "SEARCH": "Search for users"
+            "SEARCH": "Search for users",
         }
     },
     "US": {
-        "TOTAL_POINTS": "total"
+        "TOTAL_POINTS": "total",
+        "ADD": "+ Add a new User Story",
+        "ADD_BULK": "Add some new User Stories in bulk"
     },
     "COMMENTS": {
         "DELETED_INFO": "Comment deleted by {{deleteCommentUser}} on {{deleteCommentDate}}",
@@ -234,6 +348,53 @@
         "GO_TO_TASKBOARD": "Go to the taskboard of {{::name}}",
         "EDIT_SPRINT": "Edit Sprint",
         "CLOSED_POINTS": "closed",
-        "TOTAL_POINTS": "total"
+        "TOTAL_POINTS": "total",
+        "STATUS_NAME": "Status Name",
+        "POINTS": "Points",
+        "SPRINT_SUMMARY": {
+            "TOTAL_POINTS": "total<br />points",
+            "COMPLETED_POINTS": "completed<br />points",
+            "OPEN_TASKS": "open<br />tasks",
+            "CLOSED_TASKS": "closed<br />tasks",
+            "IOCAINE_DOSES": "iocaine<br />doses",
+            "SHOW_STATISTICS_TITLE": "Show statistics",
+        },
+        "SUMMARY": {
+            "PROJECT_POINTS": "project<br />points",
+            "DEFINED_POINTS": "defined<br />points",
+            "CLOSED_POINTS": "closed<br />points",
+            "POINTS_PER_SPRINT": "points /<br />sprint"
+        },
+        "FILTERS": {
+            "TITLE": "filters",
+            "INPUT_PLACEHOLDER": "Subject or reference",
+            "TITLE_ACTION_FILTER_BUTTON": "search",
+            "BREADCRUMB_TITLE": "back to categories"
+            "BREADCRUMB_FILTERS": "Filters",
+            "BREADCRUMB_STATUS": "status",
+            "FILTER_CATEGORY_STATUS": "Status",
+            "FILTER_CATEGORY_TAGS": "Tags"
+        }
+    },
+    "ERROR": {
+        "TEXT1": "Something happened and our Oompa Loompas are working on it.",
+        "TEXT2": "Try reloading again soon.",
+        "NOT_FOUND": "Not found",
+        "NOT_FOUND_TEXT": "Error 404. The page you are looking for no longer exists. Perhaps you can return back to TAIGA homepage and see if you can find what you are looking for.",
+        "PERMISSION_DENIED": "Permission denied",
+        "PERMISSION_DENIED_CODE": "Error 403."
+    },
+    "TASKBOARD": {
+        "ADD": "Add a new Task",
+        "ADD_BULK": "Add some new Tasks in bulk",
+        "ASSIGN": "Assign task",
+        "EDIT": "Edit task"
+    },
+    "NOTIFICATION": {
+        "OK": "Everything is ok",
+        "WARNING": "Oops, something happened...",
+        "WARNING_TEXT": "Our oompa Loompas are sad, your changes were not saved!",
+        "SAVED": "Our oompa Loompas saved all your changes!",
+        "CLOSE": "Close notification",
     }
 }
