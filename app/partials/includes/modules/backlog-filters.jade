@@ -1,29 +1,29 @@
 section.filters
     div.filters-inner
         h1
-            span.title(translate="BACKLOG.FILTERS.TITLE")
+            span.title(translate="COMMON.FILTERS.TITLE")
 
         form
             fieldset
-                input(type="text", placeholder="{{'BACKLOG.FILTERS.INPUT_PLACEHOLDER' | translate}}", ng-model="filtersQ")
-                a.icon.icon-search(href="", title="{{'BACKLOG.FILTERS.TITLE_ACTION_FILTER_BUTTON' | translate}}")
+                input(type="text", placeholder="{{'COMMON.FILTERS.INPUT_PLACEHOLDER' | translate}}", ng-model="filtersQ")
+                a.icon.icon-search(href="", title="{{'COMMON.FILTERS.TITLE_ACTION_FILTER_BUTTON' | translate}}")
 
         div.filters-step-cat
             div.filters-applied
             h2.hidden.breadcrumb
-                a.back(href="", title="{{'ADMIN.FILTERS.BREADCRUMB_TITLE' | translate}}", translate="BACKLOG.FILTERS.TITLE")
+                a.back(href="", title="{{'COMMON.FILTERS.BREADCRUMB_TITLE' | translate}}", translate="BACKLOG.FILTERS.TITLE")
                 span.icon-arrow-right
                 a.subfilter(href="")
-                    span.title(translate="ADMIN.BACKLOG.FILTERS.BREADCRUMB_STATUS")
+                    span.title(translate="COMMON.FILTERS.BREADCRUMB_STATUS")
             div.filters-cats
                 ul
                     li
-                        a(href="", title="{{'ADMIN.FILTER.FILTER_CATEGORY_STATUS' | translate}}", data-type="statuses")
-                            span.title(translate="ADMIN.FILTER.FILTER_CATEGORY_STATUS")
+                        a(href="", title="{{'BACKLOG.FILTER.FILTER_CATEGORY_STATUS' | translate}}", data-type="statuses")
+                            span.title(translate="BACKLOG.FILTER.FILTER_CATEGORY_STATUS")
                             span.icon.icon-arrow-right
                     li
-                        a(href="", title="{{'ADMIN.FILTER.FILTER_CATEGORY_TAGS' | translate}}", data-type="tags")
-                            span.title(translate="ADMIN.FILTER.FILTER_CATEGORY_TAGS")
+                        a(href="", title="{{'BACKLOG.FILTER.FILTER_CATEGORY_TAGS' | translate}}", data-type="tags")
+                            span.title(translate="BACKLOG.FILTER.FILTER_CATEGORY_TAGS")
                             span.icon.icon-arrow-right
 
         div.filter-list.hidden

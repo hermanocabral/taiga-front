@@ -2,15 +2,15 @@ div.login-form-container(tg-login)
     form.login-form
         fieldset
             input(type="text", name="username", data-required="true",
-                  placeholder="{{'Username or Email (case sensitive)' | translate}}")
+                  placeholder="{{'LOGIN_FORM.PLACEHOLDER_AUTH_NAME' | translate}}")
         fieldset.login-password
             input(type="password", name="password", data-required="true",
-                  placeholder="{{'Password (case sensitive)' | translate}}")
+                  placeholder="{{'LOGIN_FORM.PLACEHOLDER_AUTH_PASSWORD' | translate}}")
             // This should be hidden when focus on pass
-            a.forgot-pass(href="", tg-nav="forgot-password", title="{{'Did you forgot your password?' | translate}}", translate) Forgot it?
+            a.forgot-pass(href="", tg-nav="forgot-password", title="{{'Did you forgot your password?' | translate}}", translate="LOGIN_FORM.LINK_FORGOT_PASSWORD")
 
         fieldset
-            button.button-green.submit-button(type="submit", title="{{'Sign in' | translate}}", translate) Sign in
+            button.button-green.submit-button(type="submit", title="{{'LOGIN_FORM.ACTION_SIGN_IN' | translate}}", translate="LOGIN_FORM.ACTION_SIGN_IN")
 
         fieldset(ng-repeat="plugin in contribPlugins|filter:{type: 'auth'}", ng-include="plugin.template")
 

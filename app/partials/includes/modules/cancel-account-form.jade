@@ -1,11 +1,11 @@
 div.change-email-form-container(tg-cancel-account)
     p.change-password-text
-        strong(translate) Cancel your account <br />
-        span(translate) We're sorry you are leaving the taiga, we hope you enjoyed your stay :)
+        strong(translate="CANCEL_ACCOUNT.TITLE")
+        span(translate="CANCEL_ACCOUNT.SUBTITLE")
 
     form
         fieldset
             input(type="hidden", name="cancel_token", ng-model="data.cancel_token", data-required="true",
-                  placeholder="{{'cancel account token' | translate}}")
+                  placeholder="{{'CANCEL_ACCOUNT.PLACEHOLDER_INPUT_TOKEN' | translate}}")
 
-            button.button-cancel-account.button-gray(type="submit", title="{{'Yes, I'm leaving!' | translate}}", translate) Yes, I'm leaving!
+            button.button-cancel-account.button-gray(type="submit", title="{{'CANCEL_ACCOUNT.ACTION_LEAVING' | translate}}", translate="CANCEL_ACCOUNT.ACTION_LEAVING")

@@ -2,10 +2,12 @@
     "COMMON": {
         "YES": "Yes",
         "NO": "No",
-        "LOADING": "loading...",
+        "LOADING": "Loading...",
+        "LOADING_PROJECT": "Loading project...",
         "SAVE": "Save",
         "CANCEL": "Cancel",
         "DELETE": "Delete",
+        "CREATE": "Create",
         "ADD": "Add",
         "YES": "Yes",
         "NO": "No",
@@ -16,16 +18,20 @@
         "TAG_LINE_2": "LOVE YOUR PROJECT",
         "BLOCK": "Block",
         "UNBLOCK": "Unblock",
+        "BLOCKED": "Blocked",
         "CREATED_BY": "Created by {{fullDisplayName}}",
-        "FROM": "From",
-        "TO": "To",
+        "FROM": "from",
+        "TO": "to",
         "CLOSE": "close",
         "BLOCKED_NOTE": "Why is this user story blocked?",
         "BLOCKED_REASON": "Please explain the reason",
         "GO_HOME": "Take me home",
         "PLUGINS": "Plugins",
         "BETA": "We are on beta!",
-            "IOCAINE_TEXT": "Feeling a bit overwhelmed by a task? Make sure others know about it by clicking on Iocaine when editing a task. It's possible to become immune to this (fictional) deadly poison by consuming small amounts over time just as it's possible to get better at what you do by occasionally taking on extra challenges!",
+        "ONE_ITEM_LINE": "One item per line...",
+        "NEW_BULK": "New bulk insert",
+        "RELATED_TASKS": "Related tasks",
+        "IOCAINE_TEXT": "Feeling a bit overwhelmed by a task? Make sure others know about it by clicking on Iocaine when editing a task. It's possible to become immune to this (fictional) deadly poison by consuming small amounts over time just as it's possible to get better at what you do by occasionally taking on extra challenges!",
         "TAGS": {
             "PLACEHOLDER": "I'm it! Tag me...",
             "DELETE": "delete tag",
@@ -37,12 +43,17 @@
             "NO_DESCRIPTION": "No description yet"
         },
         "FIELDS": {
+            "SUBJECT": "Subject",
             "NAME": "Name",
             "URL": "URL",
             "DESCRIPTION": "Description",
             "VALUE": "Value",
             "SLUG": "Slug",
-            "COLOR": "Color"
+            "COLOR": "Color",
+            "IS_CLOSED": "Is closed?",
+            "STATUS": "Status",
+            "ASSIGNED_TO": "Assigned to",
+            "POINTS": "Points"
         },
         "ROLES": {
             "ALL": "All"
@@ -67,6 +78,14 @@
             "CUSTOM_FIELDS": "Custom Fields",
             "SAVE": "Save Custom Field",
             "EDIT": "Edit Custom Field"
+        },
+        "FILTERS": {
+            "TITLE": "filters",
+            "INPUT_PLACEHOLDER": "Subject or reference",
+            "TITLE_ACTION_FILTER_BUTTON": "search",
+            "BREADCRUMB_TITLE": "back to categories",
+            "BREADCRUMB_FILTERS": "Filters",
+            "BREADCRUMB_STATUS": "status"
         }
     },
     "AUTH": {
@@ -294,10 +313,7 @@
         },
         "SUBMENU_ROLES": {
             "TITLE": "Roles"
-        },
-        "SUBMENU_THIRDPARTIES": {
-            "TITLE": "Roles"
-        },
+        }
     },
     "LIGHTBOX": {
         "DELETE_PROJECT": {
@@ -308,13 +324,54 @@
         },
         "ASSIGNED_TO": {
             "SELECT": "Select assigned to",
-            "SEARCH": "Search for users",
+            "SEARCH": "Search for users"
+        },
+        "ADD_MEMBER": {
+            "TITLE": "New Member",
+            "HELP_TEXT": "If users are already registered on Taiga, they will be added automatically. Otherwise they will receive an invitation."
+        },
+        "ASK_CHOICE": {
+            "ACTION_ACCEPT": "Accept",
+            "ACTION_CANCEL": "Cancel"
+        },
+        "CREATE_ISSUE": {
+            "TITLE": "Add Issue"
+        },
+        "FEEDBACK": {
+            "TITLE": "Tell us something...",
+            "COMMENT": "...a bug, some suggestions, something cool... or even your worst nightmare with Taiga",
+            "ACTION_SEND": "Send feedback"
+        },
+        "SEARCH": {
+            "TITLE": "Search",
+            "PLACEHOLDER_SEARCH": "What are you looking for?"
+        },
+        "ADD_EDIT_SPRINT": {
+            "TITLE": "New sprint",
+            "PLACEHOLDER_SPRINT_NAME": "sprint name",
+            "PLACEHOLDER_SPRINT_START": "Estimated Start",
+            "PLACEHOLDER_SPRINT_END": "Estimated End",
+            "ACTION_DELETE_SPRINT": "Do you want to delete this sprint?",
+            "TITLE_ACTION_DELETE_SPRINT": "delete sprint",
+        },
+        "CREATE_EDIT_TASK": {
+            "TITLE": "New task",
+            "PLACEHOLDER_SUBJECT": "A task subject",
+            "PLACEHOLDER_STATUS": "Task status",
+            "OPTION_UNASSIGNED": "Unassigned",
+            "PLACEHOLDER_SHORT_DESCRIPTION": "Type a short description"
+        },
+        "CREATE_EDIT_US": {
+            "TITLE": "New US",
+            "PLACEHOLDER_DESCRIPTION": "Please add descriptive text to help others better understand this US"
         }
     },
     "US": {
         "TOTAL_POINTS": "total",
         "ADD": "+ Add a new User Story",
-        "ADD_BULK": "Add some new User Stories in bulk"
+        "ADD_BULK": "Add some new User Stories in bulk",
+        "TEAM_REQUIREMENT": "Team Requirement",
+        "CLIENT_REQUIREMENT": "Client Requirement"
     },
     "COMMENTS": {
         "DELETED_INFO": "Comment deleted by {{deleteCommentUser}} on {{deleteCommentDate}}",
@@ -351,13 +408,19 @@
         "TOTAL_POINTS": "total",
         "STATUS_NAME": "Status Name",
         "POINTS": "Points",
+        "TABLE": {
+            "COLUMN_US": "User Stories",
+            "COLUMN_STATUS": "Status",
+            "COLUMN_POINTS": "Points",
+            "TITLE_COLUMN_POINTS": "Select view per Role"
+        },
         "SPRINT_SUMMARY": {
             "TOTAL_POINTS": "total<br />points",
             "COMPLETED_POINTS": "completed<br />points",
             "OPEN_TASKS": "open<br />tasks",
             "CLOSED_TASKS": "closed<br />tasks",
             "IOCAINE_DOSES": "iocaine<br />doses",
-            "SHOW_STATISTICS_TITLE": "Show statistics",
+            "SHOW_STATISTICS_TITLE": "Show statistics"
         },
         "SUMMARY": {
             "PROJECT_POINTS": "project<br />points",
@@ -366,14 +429,17 @@
             "POINTS_PER_SPRINT": "points /<br />sprint"
         },
         "FILTERS": {
-            "TITLE": "filters",
-            "INPUT_PLACEHOLDER": "Subject or reference",
-            "TITLE_ACTION_FILTER_BUTTON": "search",
-            "BREADCRUMB_TITLE": "back to categories"
-            "BREADCRUMB_FILTERS": "Filters",
-            "BREADCRUMB_STATUS": "status",
             "FILTER_CATEGORY_STATUS": "Status",
             "FILTER_CATEGORY_TAGS": "Tags"
+        },
+        "SPRINTS": {
+            "TITLE": "SPRINTS",
+            "LINK_TASKBOARD": "Sprint Taskboard",
+            "TITLE_LINK_TASKBOARD": "Go to Taskboard of {{spring.name}}",
+            "NUMBER_SPRINTS": "<br/>sprints",
+            "TITLE_ACTION_NEW_SPRINT": "+ New sprint",
+            "ACTION_NEW_SPRINT": "+ New sprint",
+            "ACTION_SHOW_CLOSED_SPRINTS": "Show closed sprints"
         }
     },
     "ERROR": {
@@ -395,6 +461,105 @@
         "WARNING": "Oops, something happened...",
         "WARNING_TEXT": "Our oompa Loompas are sad, your changes were not saved!",
         "SAVED": "Our oompa Loompas saved all your changes!",
-        "CLOSE": "Close notification",
+        "CLOSE": "Close notification"
+    },
+    "CANCEL_ACCOUNT": {
+        "TITLE": "Cancel your account <br />",
+        "SUBTITLE": "We're sorry you are leaving the taiga, we hope you enjoyed your stay :)",
+        "PLACEHOLDER_INPUT_TOKEN": "cancel account token",
+        "ACTION_LEAVING": "Yes, I'm leaving!"
+    },
+    "CHANGE_EMAIL_FORM": {
+        "TITLE": "Change your email <br />",
+        "SUBTITLE": "One click more and your email will be updated!",
+        "PLACEHOLDER_INPUT_TOKEN": "change email token",
+        "ACTION_CHANGE_EMAIL": "Change email"
+    },
+    "CHANGE_PASSWORD_RECOVERY_FORM": {
+        "TITLE": "Create a new Taiga pass",
+        "SUBTITLE": "And hey, you may want to eat some more iron-rich food, it's good for your brain :P",
+        "PLACEHOLDER_RECOVER_PASSWORD_TOKEN": "Recover password token",
+        "LINK_NEED_TOKEN": "Need one?",
+        "TITLE_LINK_NEED_TOKEN": "Did you need a token to recover your password because you forgot it?",
+        "PLACEHOLDER_NEW_PASSWORD": "New password",
+        "PLACEHOLDER_RE_TYPE_NEW_PASSWORD": "Re-type new password",
+        "ACTION_RESET_PASSWORD": "Reset Password"
+    },
+    "FORGOT_PASSWORD_FORM": {
+        "TITLE": "Oops, did you forget your password?",
+        "SUBTITLE": "Enter your username or email to get a new one",
+        "PLACEHOLDER_FIELD": "Username or email",
+        "ACTION_RESET_PASSWORD": "Reset Password",
+        "LINK_CANCEL": "Nah, take me back. I think I remember it."
+    },
+    "LOGIN_FORM": {
+        "HEADER": "I already have a Taiga login",
+        "PLACEHOLDER_AUTH_NAME": "Username or email (case sensitive)",
+        "LINK_FORGOT_PASSWORD": "Forgot it?",
+        "TITLE_LINK_FORGOT_PASSWORD": "Did you forgot your password?",
+        "ACTION_ENTER": "Enter"
+    },
+    "INVITATION_LOGIN_FORM": {
+        "HEADER": "I already have a Taiga login",
+        "PLACEHOLDER_AUTH_NAME": "Username or email (case sensitive)",
+        "PLACEHOLDER_AUTH_PASSWORD": "Password (case sensitive)",
+        "LINK_FORGOT_PASSWORD": "Forgot it?",
+        "TITLE_LINK_FORGOT_PASSWORD": "Did you forgot your password?",
+        "ACTION_ENTER": "Enter"
+    },
+    "REGISTER_FORM": {
+        "PLACEHOLDER_NAME": "Pick a username (case sensitive)",
+        "PLACEHOLDER_FULL_NAME": "Pick your full name",
+        "PLACEHOLDER_EMAIL": "Your email",
+        "PLACEHOLDER_PASSWORD": "Set a password (case sensitive)",
+        "ACTION_SIGN_UP": "Sign up",
+        "TITLE_LINK_LOGIN": "Log in"
+        "LINK_LOGIN": "Are you already registered? Log in"
+    },
+    "ISSUES": {
+        "ACTION_NEW_ISSUE": "+ NEW ISSUE",
+        "FILTERS": {
+            "ACTION_SAVE_CUSTOM_FILTER": "save as custom filter",
+            "FILTER_CATEGORY_TYPE": "Type",
+            "FILTER_CATEGORY_STATUS": "Status",
+            "FILTER_CATEGORY_SEVERITY": "Severity",
+            "FILTER_CATEGORY_PRIORITIES": "Priorities",
+            "FILTER_CATEGORY_TAGS": "Tags",
+            "FILTER_CATEGORY_ASSIGNED_TO": "Assigned to",
+            "FILTER_CATEGORY_CREATED_BY": "Created by",
+            "CUSTOM_FILTERS": "Custom filters"
+        },
+        "TABLE": {
+            "COLUMN_TYPE": "Type",
+            "COLUMN_SEVERITY": "Severity",
+            "COLUMN_PRIORITY": "Priority",
+            "COLUMN_SUBJECT": "Subject",
+            "COLUMN_STATU_titleS": "Status",
+            "COLUMN_CREATED": "Created",
+            "TITLE_ACTION_CHANGE_STATUS": "Change status",
+            "EMPTY": {
+                "TITLE": "There are no issues to report :-)",
+                "SUBTITLE": "Did you find an issue?",
+                "ACTION_CREATE_ISSUE": "Create a new Issue"
+            }
+        }
+    },
+    "KANBAN": {
+        "TITLE_ACTION_FOLD": "Fold column",
+        "TITLE_ACTION_UNFOLD": "Unfold column",
+        "TITLE_ACTION_FOLD_CARDS": "Fold cards",
+        "TITLE_ACTION_UNFOLD_CARDS": "Unfold cards",
+        "TITLE_ACTION_ADD_US": "Add New User Story",
+        "TITLE_ACTION_ADD_BULK": "Add New bulk"
+    },
+    "SEARCH": {
+        "FILTER_USER_STORIES": "User Stories",
+        "FILTER_ISSUES": "Issues",
+        "FILTER_TASKS": "Tasks",
+        "FILTER_WIKI": "Wiki Pages"
+        "PLACEHOLDER_SEARCH": "Search in..."
+        "TITLE_ACTION_SEARCH": "search",
+        "EMPTY_TITLE": "It looks like nothing was found with your search criteria.",
+        "EMPTY_DESCRIPTION": "Maybe try one of the tabs above or search again"
     }
 }
