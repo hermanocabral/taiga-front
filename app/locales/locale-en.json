@@ -31,6 +31,7 @@
         "ONE_ITEM_LINE": "One item per line...",
         "NEW_BULK": "New bulk insert",
         "RELATED_TASKS": "Related tasks",
+        "LOGOUT": "Logout",
         "IOCAINE_TEXT": "Feeling a bit overwhelmed by a task? Make sure others know about it by clicking on Iocaine when editing a task. It's possible to become immune to this (fictional) deadly poison by consuming small amounts over time just as it's possible to get better at what you do by occasionally taking on extra challenges!",
         "TAGS": {
             "PLACEHOLDER": "I'm it! Tag me...",
@@ -39,7 +40,7 @@
         },
         "DESCRIPTION": {
             "EMPTY": "Empty space is so boring... go on be descriptive... A rose by any other name would smell as sweet...",
-            "MARDOWN_HELP": "Markown syntax help",
+            "MARKDOWN_HELP": "Markown syntax help",
             "NO_DESCRIPTION": "No description yet"
         },
         "FIELDS": {
@@ -257,7 +258,10 @@
         },
         "PROJECT": {
             "TITLE_ACTION_EDIT_VALUE": "Edit value",
-            "TITLE_ACTION_DELETE_VALUE": "Delete value"
+            "TITLE_ACTION_DELETE_VALUE": "Delete value",
+            "COLORS": {
+                "ACTION_NEW_STATUS": "+ Add new status"
+            }
         },
         "CSV": {
             "TITLE": "#{csvType} reports",
@@ -315,7 +319,40 @@
             "TITLE": "Roles"
         }
     },
+    "PROJECT": {
+        "WELCOME": "Welcome",
+        "SECTION_PROJECTS": "Projects",
+        "STATS": {
+            "PROJECT": "project<br/> points",
+            "DEFINED": "defined<br/> points",
+            "ASSIGNED": "assigned<br/> points",
+            "CLOSED": "closed<br/> points"
+        },
+        "SECTION": {
+            "SEARCH": "Search",
+            "BACKLOG": "Backlog",
+            "KANBAN": "Kanban",
+            "ISSUES": "Issues",
+            "WIKI": "Wiki",
+            "TEAM": "Team",
+            "MEETUP": "Meet Up",
+            "ADMIN": "Admin"
+        },
+        "NAVIGATION": {
+            "SECTION_TITLE": "Your project",
+            "PLACEHOLDER_SEARCH": "Search in...",
+            "ACTION_CREATE_PROJECT": "Create project",
+            "TITLE_ACTION_IMPORT": "Import project",
+            "TITLE_PRVIOUS_PROJECT": "Show previous projects",
+            "TITLE_NEXT_PROJECT": "Show next projects"
+        }
+    },
     "LIGHTBOX": {
+        "DELETE_ACCOUNT": {
+            "SECTION_NAME": "Delete Taiga Account",
+            "CONFIRM": "Are you sure you want to delete your Taiga account?",
+            "SUBTITLE": "We're going to miss you! :-("
+        },
         "DELETE_PROJECT": {
             "TITLE": "Delete project",
             "QUESTION": "Are you sure you want to delete this project?",
@@ -371,7 +408,18 @@
         "ADD": "+ Add a new User Story",
         "ADD_BULK": "Add some new User Stories in bulk",
         "TEAM_REQUIREMENT": "Team Requirement",
-        "CLIENT_REQUIREMENT": "Client Requirement"
+        "CLIENT_REQUIREMENT": "Client Requirement",
+        "PROMOTED": "This US has been promoted from Issue",
+        "TITLE_LINK_GO_TO_ISSUE": "Go to issue",
+        "EXTERNAL_REFERENCE": "This US has been created from",
+        "GO_TO_EXTERNAL_REFERENCE": "Go to origin",
+        "BLOCKED": "This user story is blocked",
+        "PREVIOUS": "previous user story",
+        "NEXT": "next user story",
+        "TITLE_DELETE_ACTION": "Delete User Story",
+        "LIGHTBOX_TITLE_BLOKING_US": "Blocking us",
+        "FIELD_STATUS": "status",
+        "TASK_COMPLETED": "<%- totalClosedTasks %>/<%- totalTasks %> tasks completed"
     },
     "COMMENTS": {
         "DELETED_INFO": "Comment deleted by {{deleteCommentUser}} on {{deleteCommentDate}}",
@@ -451,17 +499,42 @@
         "PERMISSION_DENIED_CODE": "Error 403."
     },
     "TASKBOARD": {
-        "ADD": "Add a new Task",
-        "ADD_BULK": "Add some new Tasks in bulk",
-        "ASSIGN": "Assign task",
-        "EDIT": "Edit task"
+        "SECTION_NAME": "Taskboard",
+        "TITLE_ACTION_ADD": "Add a new Task",
+        "TITLE_ACTION_ADD_BULK": "Add some new Tasks in bulk",
+        "TITLE_ACTION_ASSIGN": "Assign task",
+        "TITLE_ACTION_EDIT": "Edit task",
+        "TABLE": {
+            "COLUMN": "User story",
+            "TITLE_ACTION_FOLD": "Fold column",
+            "TITLE_ACTION_UNFOLD": "Unfold column",
+            "TITLE_ACTION_FOLD_ROW": "Fold Row",
+            "TITLE_ACTION_UNFOLD_ROW": "Unfold Row",
+            "FIELD_POINTS": "points",
+            "ROW_UNASSIGED_TASKS_TITLE": "Unassigned tasks"
+        }
+    },
+    "TASK": {
+        "PLACEHOLDER_SUBJECT": "Type the new task subject",
+        "TITLE_SELECT_STATUS": "Status Name",
+        "LINK_TASKBOARD": "Go to taskboard",
+        "OWNER_US": "This task belongs to",
+        "TITLE_LINK_GO_OWNER": "Go to user story",
+        "ORIGIN_US": "This task has been created from",
+        "TITLE_LINK_GO_ORIGIN": "Go to user story",
+        "BLOCKED": "This task is blocked",
+        "PREVIOUS": "previous task",
+        "NEXT": "next task",
+        "TITLE_DELETE_ACTION": "Delete Task",
+        "LIGHTBOX_TITLE_BLOKING_TASK": "Blocking task"
     },
     "NOTIFICATION": {
         "OK": "Everything is ok",
         "WARNING": "Oops, something happened...",
         "WARNING_TEXT": "Our oompa Loompas are sad, your changes were not saved!",
         "SAVED": "Our oompa Loompas saved all your changes!",
-        "CLOSE": "Close notification"
+        "CLOSE": "Close notification",
+        "MAIL": "Notifications By Mail"
     },
     "CANCEL_ACCOUNT": {
         "TITLE": "Cancel your account <br />",
@@ -518,6 +591,20 @@
     },
     "ISSUES": {
         "ACTION_NEW_ISSUE": "+ NEW ISSUE",
+        "FIELD_PRIORITY": "priority",
+        "FIELD_SEVERITY": "severity",
+        "FIELD_STATUS": "status",
+        "FIELD_TYPE": "type",
+        "ACTION_PROMOTE_TO_US": "Promote to User Story",
+        "PLACEHOLDER_FILTER_NAME": "Write the filter name and press enter",
+        "PROMOTED": "This issue has been promoted to US:",
+        "EXTERNAL_REFERENCE": "This issue has been created from",
+        "GO_TO_EXTERNAL_REFERENCE": "Go to origin",
+        "BLOCKED": "This issue is blocked",
+        "TITLE_PREVIOUS_ISSUE": "previous issue",
+        "TITLE_NEXT_ISSUE": "next issue",
+        "ACTION_DELETE": "Delete issue",
+        "LIGHTBOX_TITLE_BLOKING_ISSUE": "Blocking issue",
         "FILTERS": {
             "ACTION_SAVE_CUSTOM_FILTER": "save as custom filter",
             "FILTER_CATEGORY_TYPE": "Type",
@@ -561,5 +648,85 @@
         "TITLE_ACTION_SEARCH": "search",
         "EMPTY_TITLE": "It looks like nothing was found with your search criteria.",
         "EMPTY_DESCRIPTION": "Maybe try one of the tabs above or search again"
+    },
+    "TEAM": {
+        "PLACEHOLDER_INPUT_SEARCH": "Search by username or role...",
+        "COLUMN_MR_WOLF": "Mr. Wolf",
+        "EXPLANATION_COLUMN_MR_WOLF": "Closed issues",
+        "COLUMN_IOCAINE": "Iocaine Drinker",
+        "EXPLANATION_COLUMN_IOCAINE": "Iocaine doses ingested",
+        "COLUMN_CERVANTES": "Cervantes",
+        "EXPLANATION_COLUMN_CERVANTES": "Wiki pages edited",
+        "COLUMN_BUG_HUNTER": "Total Bug Hunter",
+        "EXPLANATION_COLUMN_BUG_HUNTER": "Bugs reported",
+        "COLUMN_NIGHT_SHIFT": "Night Shift",
+        "EXPLANATION_COLUMN_NIGHT_SHIFT": "Tasks closed",
+        "COLUMN_TOTAL_POWER": "Total Power",
+        "EXPLANATION_COLUMN_TOTAL_POWER": "Total Points",
+        "SECTION_TITLE_TEAM": "Team >",
+        "SECTION_FILTER_ALL": "All",
+        "ACTION_LEAVE_PROJECT": "Leave this project"
+    },
+    "CHANGE_PASSWORD": {
+        "FIELD_CURRENT_PASSWORD": "Current Password",
+        "PLACEHOLDER_CURRENT_PASSWORD": "Your current password (or empty if you have no password yet)",
+        "FIELD_NEW_PASSWORD": "New Password",
+        "FIELD_RETYPE_PASSWORD": "Retype Password"
+    },
+    "USER_SETTINGS": {
+        "MENU": {
+            "SECTION_TITLE": "User Settings",
+            "USER_PROFILE": "User profile",
+            "CHANGE_PASSWORD": "Change password",
+            "EMAIL_NOTIFICATIONS": "Email notifications"
+        },
+        "NOTIFICATIONS": {
+            "COLUMN_PROJECT": "Project",
+            "COLUMN_RECEIVE_ALL": "Receive All",
+            "COLUMN_ONLY_INVOLVED": "Only Involved",
+            "COLUMN_NO_NOTIFICATIONS": "No notifications",
+        },
+        "POPOVER": {
+            "USER_PROFILE": "User Profile",
+            "CHANGE_PASSWORD": "Change Password",
+            "NOTIFICATIONS": "Notifications",
+            "FEEDBACK": "Feedback",
+            "TITLE_AVATAR": "User preferences"
+        }
+    },
+    "USER_PROFILE": {
+        "IMAGE_HELP": "The image will be cropped to 80x80px.<br>",
+        "ACTION_CHANGE_IMAGE": "Change",
+        "ACTION_USE_GRAVATAR": "Use gravatar image",
+        "ACTION_DELETE_ACCOUNT": "Delete Taiga account",
+        "FIELD": {
+            "USERNAME": "Username",
+            "EMAIL": "Email",
+            "FULL_NAME": "Full name",
+            "PLACEHOLDER_FULL_NAME": "Set your full name (ex. Íñigo Montoya)",
+            "BIO": "Bio",
+            "PLACEHOLDER_BIO": "Tell us something about you",
+        }
+    },
+    "WIZARD": {
+        "SECTION_TITLE_CHOOSE_TEMPLATE": "Choose a template",
+        "CHOOSE_TEMPLATE_TEXT": "Which template would fit better in your project?",
+        "SECTION_TITLE_CREATE_PROJECT": "Create Project",
+        "CREATE_PROJECT_TEXT": "Fresh and clean. So exciting!",
+        "PROGRESS_TEMPLATE_SELECTION": "Template selection",
+        "PROGRESS_NAME_DESCRIPTION": "Name and description"
+    },
+    "WIKI": {
+        "PLACEHOLDER_PAGE": "Write your wiki page",
+        "REMOVE": "Remove this wiki page",
+        "NAVIGATION": {
+            "SECTION_NAME": "Links",
+            "ACTION_ADD_LINK": "Add link"
+        },
+        "SUMMARY": {
+            "TIMES_EDITED": "times <br />edited",
+            "LAST_EDIT": "last <br />edit",
+            "LAST_MODIFICATION": "last modification"
+        }
     }
 }

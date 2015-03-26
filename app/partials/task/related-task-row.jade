@@ -6,21 +6,21 @@ div(class="tasks")
             span <%- task.subject %>
         div(class="task-settings")
             <% if(perms.modify_task) { %>
-            a(href="" title="{{'Edit' | translate}}" class="icon icon-edit")
+            a(href="" title="{{'COMMON.EDIT' | translate}}" class="icon icon-edit")
             <% } %>
             <% if(perms.delete_task) { %>
-            a(href="" title="{{'Delete' | translate}}" class="icon icon-delete delete-task")
+            a(href="" title="{{'COMMON.DELETE' | translate}}" class="icon icon-delete delete-task")
             <% } %>
 
 div(tg-related-task-status="task" ng-model="task" class="status")
-    a(href="" title="{{'Status Name' | translate}}" class="task-status")
+    a(href="" title="{{'TASK.TITLE_SELECT_STATUS' | translate}}" class="task-status")
         span(class="task-status-bind")
         <% if(perms.modify_task) { %>
         span(class="icon icon-arrow-bottom")
         <% } %>
 
 div(tg-related-task-assigned-to-inline-edition="task" class="assigned-to")
-    div(title="{{'Assigned to' | translate}}" class="task-assignedto <% if(perms.modify_task) { %>editable<% } %>")
+    div(title="{{'COMMON.FIELDS.ASSIGNED_TO' | translate}}" class="task-assignedto <% if(perms.modify_task) { %>editable<% } %>")
         figure(class="avatar")
         <% if(perms.modify_task) { %>
         span(class="icon icon-arrow-bottom")

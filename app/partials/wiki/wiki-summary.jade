@@ -1,14 +1,14 @@
 div.wiki-times-edited
     span.number <%- totalEditions %>
-    span.description(translate) times <br />edited
+    span.description(translate="WIKI.SUMMARY.TIMES_EDITED")
 
 div.wiki-last-modified
     span.number <%- lastModifiedDate %>
-    span.description(translate) last <br />edit
+    span.description(translate="WIKI.SUMMARY.LAST_EDIT")
 
 div.wiki-username-edition
     figure.avatar
         img(src!="<%- user.imgUrl %>" alt!="<%- user.name %>")
     div.wiki-user-modification
-        span.description(translate) last modification
+        span.description(translate="WIKI.SUMMARY.LAST_MOFICATION")
         span.username <%- user.name %>
