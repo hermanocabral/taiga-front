@@ -49,11 +49,12 @@ class BacklogController extends mixOf(taiga.Controller, taiga.PageMixin, taiga.F
         "$tgNavUrls",
         "$tgEvents",
         "$tgAnalytics",
-        "tgLoader"
+        "tgLoader",
+        "$translate"
     ]
 
     constructor: (@scope, @rootscope, @repo, @confirm, @rs, @params, @q,
-                  @location, @appTitle, @navUrls, @events, @analytics, tgLoader) ->
+                  @location, @appTitle, @navUrls, @events, @analytics, tgLoader, @translate) ->
         bindMethods(@)
 
         @scope.sectionName = "Backlog"
@@ -495,21 +496,20 @@ class BacklogController extends mixOf(taiga.Controller, taiga.PageMixin, taiga.F
         @rootscope.$broadcast("usform:edit", us)
 
     deleteUserStory: (us) ->
-        #TODO: i18n
-        title = "Delete User Story"
-        message = us.subject
+        @translate("US.TITLE_DELETE_ACTION").then (title) =>
+            message = us.subject
 
-        @confirm.askOnDelete(title, message).then (finish) =>
-            # We modify the userstories in scope so the user doesn't see the removed US for a while
-            @scope.userstories = _.without(@scope.userstories, us)
-            @filterVisibleUserstories()
-            promise = @.repo.remove(us)
-            promise.then =>
-                finish()
-                @.loadBacklog()
-            promise.then null, =>
-                finish(false)
-                @confirm.notify("error")
+            @confirm.askOnDelete(title, message).then (finish) =>
+                # We modify the userstories in scope so the user doesn't see the removed US for a while
+                @scope.userstories = _.without(@scope.userstories, us)
+                @filterVisibleUserstories()
+                promise = @.repo.remove(us)
+                promise.then =>
+                    finish()
+                    @.loadBacklog()
+                promise.then null, =>
+                    finish(false)
+                    @confirm.notify("error")
 
     addNewUs: (type) ->
         switch type
@@ -527,12 +527,11 @@ module.controller("BacklogController", BacklogController)
 ## Backlog Directive
 #############################################################################
 
-BacklogDirective = ($repo, $rootscope) ->
+BacklogDirective = ($repo, $rootscope, $translate) ->
     ## Doom line Link
     doomLineTemplate = _.template("""
-    <div class="doom-line"><span>Project Scope [Doomline]</span></div>
+    <div class="doom-line"><span><%- text %></span></div>
     """)
-    # TODO: i18n
 
     linkDoomLine = ($scope, $el, $attrs, $ctrl) ->
         reloadDoomLine = ->
@@ -559,7 +558,8 @@ BacklogDirective = ($repo, $rootscope) ->
             $el.find(".doom-line").remove()
 
         addDoomLineDom = (element) ->
-            $(element).before(doomLineTemplate({}))
+            $translate(BACKLOG.DOOMLINE).then (text)
+                $(element).before(doomLineTemplate({"text": text}))
 
         getUsItems = ->
             rowElements = $el.find('.backlog-table-body .us-item-row')
@@ -629,10 +629,12 @@ BacklogDirective = ($repo, $rootscope) ->
 
         if $ctrl.showTags
             elm.addClass("active")
-            elm.find(".text").text("Hide Tags") # TODO: i18n
+            $translate("BACKLOG.TAGS.HIDE").then (text) ->
+                elm.find(".text").text(text)
         else
             elm.removeClass("active")
-            elm.find(".text").text("Show Tags") # TODO: i18n
+            $translate("BACKLOG.TAGS.SHOW").then (text) ->
+                elm.find(".text").text(text)
 
     showHideFilter = ($scope, $el, $ctrl) ->
         sidebar = $el.find("sidebar.filters-bar")
@@ -646,7 +648,8 @@ BacklogDirective = ($repo, $rootscope) ->
         sidebar.toggleClass("active")
         target.toggleClass("active")
 
-        toggleText(target.find(".text"), ["Remove Filters", "Show Filters"]) # TODO: i18n
+        $translate(["BACKLOG.FILTERS.REMOVE", "BACKLOG.FILTERS.SHOW"]).then (remove, show) =>
+            toggleText(target.find(".text"), [remove, show])
 
         if !sidebar.hasClass("active")
             $ctrl.resetFilters()
@@ -687,14 +690,13 @@ BacklogDirective = ($repo, $rootscope) ->
     return {link: link}
 
 
-module.directive("tgBacklog", ["$tgRepo", "$rootScope", BacklogDirective])
+module.directive("tgBacklog", ["$tgRepo", "$rootScope", "$translate", BacklogDirective])
 
 #############################################################################
 ## User story points directive
 #############################################################################
 
-UsRolePointsSelectorDirective = ($rootscope, $template, $compile) ->
-    #TODO: i18n
+UsRolePointsSelectorDirective = ($rootscope, $template, $compile, $translate) ->
     selectionTemplate = $template.get("backlog/us-role-points-popover.html", true)
 
     link = ($scope, $el, $attrs) ->
@@ -715,7 +717,9 @@ UsRolePointsSelectorDirective = ($rootscope, $template, $compile) ->
 
         $scope.$on "uspoints:clear-selection", (ctx, roleId) ->
             $el.find(".popover").popover().close()
-            $el.find(".header-points").text("Points") #TODO: i18n
+
+            $translate("BACKLOG.TABLE.COLUMN_POINTS").then (text) =>
+                $el.find(".header-points").text(text)
 
         # Dom Event Handlers
         $el.on "click", (event) ->

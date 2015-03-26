@@ -32,6 +32,7 @@
         "NEW_BULK": "New bulk insert",
         "RELATED_TASKS": "Related tasks",
         "LOGOUT": "Logout",
+        "GENERIC_ERROR": "One of our Oompa Loompas says {{error}}."
         "IOCAINE_TEXT": "Feeling a bit overwhelmed by a task? Make sure others know about it by clicking on Iocaine when editing a task. It's possible to become immune to this (fictional) deadly poison by consuming small amounts over time just as it's possible to get better at what you do by occasionally taking on extra challenges!",
         "TAGS": {
             "PLACEHOLDER": "I'm it! Tag me...",
@@ -390,17 +391,22 @@
             "PLACEHOLDER_SPRINT_END": "Estimated End",
             "ACTION_DELETE_SPRINT": "Do you want to delete this sprint?",
             "TITLE_ACTION_DELETE_SPRINT": "delete sprint",
+            "LAST_SPRINT_NAME": " last sprint is <strong> {{lastSprint}} ;-) </strong>"
         },
         "CREATE_EDIT_TASK": {
             "TITLE": "New task",
             "PLACEHOLDER_SUBJECT": "A task subject",
             "PLACEHOLDER_STATUS": "Task status",
             "OPTION_UNASSIGNED": "Unassigned",
-            "PLACEHOLDER_SHORT_DESCRIPTION": "Type a short description"
+            "PLACEHOLDER_SHORT_DESCRIPTION": "Type a short description",
+            "ACTION_EDIT": "Edit task"
         },
         "CREATE_EDIT_US": {
             "TITLE": "New US",
             "PLACEHOLDER_DESCRIPTION": "Please add descriptive text to help others better understand this US"
+        },
+        "DELETE_SPRINT": {
+            "TITLE": "Delete sprint"
         }
     },
     "US": {
@@ -456,6 +462,16 @@
         "TOTAL_POINTS": "total",
         "STATUS_NAME": "Status Name",
         "POINTS": "Points",
+        "SORTABLE_FILTER_ERROR": "You can't drop on backlog when filters are open",
+        "DOOMLINE": "Project Scope [Doomline]",
+        "FILTERS": {
+            "REMOVE": "Remove Filters",
+            "SHOW": "Show Filters"
+        },
+        "TAGS": {
+            "SHOW": "Show Tags",
+            "HIDE": "Hide Tags"
+        },
         "TABLE": {
             "COLUMN_US": "User Stories",
             "COLUMN_STATUS": "Status",
@@ -487,7 +503,8 @@
             "NUMBER_SPRINTS": "<br/>sprints",
             "TITLE_ACTION_NEW_SPRINT": "+ New sprint",
             "ACTION_NEW_SPRINT": "+ New sprint",
-            "ACTION_SHOW_CLOSED_SPRINTS": "Show closed sprints"
+            "ACTION_SHOW_CLOSED_SPRINTS": "Show closed sprints",
+            "ACTION_HIDE_CLOSED_SPRINTS": "Hide closed sprints"
         }
     },
     "ERROR": {
@@ -540,13 +557,15 @@
         "TITLE": "Cancel your account <br />",
         "SUBTITLE": "We're sorry you are leaving the taiga, we hope you enjoyed your stay :)",
         "PLACEHOLDER_INPUT_TOKEN": "cancel account token",
-        "ACTION_LEAVING": "Yes, I'm leaving!"
+        "ACTION_LEAVING": "Yes, I'm leaving!",
+        "SUCCESS": "Our Oompa Loompas removed your account"
     },
     "CHANGE_EMAIL_FORM": {
         "TITLE": "Change your email <br />",
         "SUBTITLE": "One click more and your email will be updated!",
         "PLACEHOLDER_INPUT_TOKEN": "change email token",
-        "ACTION_CHANGE_EMAIL": "Change email"
+        "ACTION_CHANGE_EMAIL": "Change email",
+        "SUCCESS": "Our Oompa Loompas updated your email"
     },
     "CHANGE_PASSWORD_RECOVERY_FORM": {
         "TITLE": "Create a new Taiga pass",
@@ -556,21 +575,31 @@
         "TITLE_LINK_NEED_TOKEN": "Did you need a token to recover your password because you forgot it?",
         "PLACEHOLDER_NEW_PASSWORD": "New password",
         "PLACEHOLDER_RE_TYPE_NEW_PASSWORD": "Re-type new password",
-        "ACTION_RESET_PASSWORD": "Reset Password"
+        "ACTION_RESET_PASSWORD": "Reset Password",
+        "SUCCESS": "Our Oompa Loompas saved your new password.<br />
+                                  Try to <strong>sign in</strong> with it."
     },
     "FORGOT_PASSWORD_FORM": {
         "TITLE": "Oops, did you forget your password?",
         "SUBTITLE": "Enter your username or email to get a new one",
         "PLACEHOLDER_FIELD": "Username or email",
         "ACTION_RESET_PASSWORD": "Reset Password",
-        "LINK_CANCEL": "Nah, take me back. I think I remember it."
+        "LINK_CANCEL": "Nah, take me back. I think I remember it.",
+        "SUCCESS": "<strong>Check your inbox!</strong><br />
+                             We have sent a mail to<br />
+                             <strong>{{email}}</strong><br />
+                             with the instructions to set a new password",
+        "ERROR": "According to our Oompa Loompas, your are not registered yet."
     },
     "LOGIN_FORM": {
         "HEADER": "I already have a Taiga login",
         "PLACEHOLDER_AUTH_NAME": "Username or email (case sensitive)",
         "LINK_FORGOT_PASSWORD": "Forgot it?",
         "TITLE_LINK_FORGOT_PASSWORD": "Did you forgot your password?",
-        "ACTION_ENTER": "Enter"
+        "ACTION_ENTER": "Enter",
+        "ERROR_AUTH_INCORRECT": "According to our Oompa Loompas, your username/email or password are incorrect."
+        "ERROR_GENERIC": "According to our Oompa Loompas there was an error.",
+        "SUCCESS": "Our Oompa Loompas are happy, welcome to Taiga."
     },
     "INVITATION_LOGIN_FORM": {
         "HEADER": "I already have a Taiga login",
@@ -578,7 +607,13 @@
         "PLACEHOLDER_AUTH_PASSWORD": "Password (case sensitive)",
         "LINK_FORGOT_PASSWORD": "Forgot it?",
         "TITLE_LINK_FORGOT_PASSWORD": "Did you forgot your password?",
-        "ACTION_ENTER": "Enter"
+        "ACTION_ENTER": "Enter",
+        "NOT_FOUND": "<strong>Ooops, we have a problem</strong><br />
+                              Our Oompa Loompas can't find your invitation.",
+        "SUCCESS": "You've successfully joined this project",
+                                       "Welcome to {{project_name}",
+        "ERROR": "According to our Oompa Loompas, your are not registered yet or
+                                            typed an invalid password."
     },
     "REGISTER_FORM": {
         "PLACEHOLDER_NAME": "Pick a username (case sensitive)",
@@ -674,6 +709,7 @@
         "FIELD_RETYPE_PASSWORD": "Retype Password"
     },
     "USER_SETTINGS": {
+        "AVATAR_MAX_SIZE": "[Max, size: {{maxFileSize}}}",
         "MENU": {
             "SECTION_TITLE": "User Settings",
             "USER_PROFILE": "User profile",
@@ -699,6 +735,9 @@
         "ACTION_CHANGE_IMAGE": "Change",
         "ACTION_USE_GRAVATAR": "Use gravatar image",
         "ACTION_DELETE_ACCOUNT": "Delete Taiga account",
+        "CHANGE_EMAIL_SUCCESS": "<strong>Check your inbox!</strong><br />
+                           We have sent a mail to your account<br />
+                           with the instructions to set your new address",
         "FIELD": {
             "USERNAME": "Username",
             "EMAIL": "Email",
@@ -719,6 +758,7 @@
     "WIKI": {
         "PLACEHOLDER_PAGE": "Write your wiki page",
         "REMOVE": "Remove this wiki page",
+        "DELETE_LIGHTBOX_TITLE": "Delete Wiki Page",
         "NAVIGATION": {
             "SECTION_NAME": "Links",
             "ACTION_ADD_LINK": "Add link"

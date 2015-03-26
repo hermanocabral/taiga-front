@@ -41,17 +41,21 @@ class UserSettingsController extends mixOf(taiga.Controller, taiga.PageMixin)
         "$q",
         "$tgLocation",
         "$tgNavUrls",
-        "$tgAuth"
+        "$tgAuth",
+        "$translate"
     ]
 
-    constructor: (@scope, @rootscope, @config, @repo, @confirm, @rs, @params, @q, @location, @navUrls, @auth) ->
-        @scope.sectionName = "User Profile" #i18n
+    constructor: (@scope, @rootscope, @config, @repo, @confirm, @rs, @params, @q, @location, @navUrls, @auth, @translate) ->
+        @translate("USER_SETTINGS.MENU.SECTION_TITLE").then (text) => @scope.sectionName = text
+
         @scope.project = {}
         @scope.user = @auth.getUser()
 
         maxFileSize = @config.get("maxUploadFileSize", null)
         if maxFileSize
-            @scope.maxFileSizeMsg = "[Max, size: #{sizeFormat(maxFileSize)}" # TODO: i18n
+            @translate("USER_SETTINGS.AVATAR_MAX_SIZE", {"maxFileSize": sizeFormat(maxFileSize)})
+                .then (text) =>
+                    @scope.maxFileSizeMsg = text
 
         promise = @.loadInitialData()
 
@@ -80,7 +84,7 @@ module.controller("UserSettingsController", UserSettingsController)
 ## User Profile Directive
 #############################################################################
 
-UserProfileDirective = ($confirm, $auth, $repo) ->
+UserProfileDirective = ($confirm, $auth, $repo, $translate) ->
     link = ($scope, $el, $attrs) ->
         submit = debounce 2000, (event) =>
             event.preventDefault()
@@ -94,9 +98,8 @@ UserProfileDirective = ($confirm, $auth, $repo) ->
                 $auth.setUser(data)
 
                 if changeEmail
-                    $confirm.success("<strong>Check your inbox!</strong><br />
-                           We have sent a mail to your account<br />
-                           with the instructions to set your new address") #TODO: i18n
+                    $translate("USER_PROFILE.CHANGE_EMAIL_SUCCESS").then (text) ->
+                        $confirm.success(text)
                 else
                     $confirm.notify('success')
 
@@ -113,7 +116,7 @@ UserProfileDirective = ($confirm, $auth, $repo) ->
 
     return {link:link}
 
-module.directive("tgUserProfile", ["$tgConfirm", "$tgAuth", "$tgRepo", UserProfileDirective])
+module.directive("tgUserProfile", ["$tgConfirm", "$tgAuth", "$tgRepo", "$translate", UserProfileDirective])
 
 
 #############################################################################

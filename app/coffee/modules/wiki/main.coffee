@@ -49,11 +49,12 @@ class WikiDetailController extends mixOf(taiga.Controller, taiga.PageMixin)
         "$appTitle",
         "$tgNavUrls",
         "$tgAnalytics",
-        "tgLoader"
+        "tgLoader",
+        "$translate"
     ]
 
     constructor: (@scope, @rootscope, @repo, @model, @confirm, @rs, @params, @q, @location,
-                  @filter, @log, @appTitle, @navUrls, @analytics, tgLoader) ->
+                  @filter, @log, @appTitle, @navUrls, @analytics, tgLoader, @translate) ->
         @scope.projectSlug = @params.pslug
         @scope.wikiSlug = @params.slug
         @scope.sectionName = "Wiki"
@@ -111,22 +112,21 @@ class WikiDetailController extends mixOf(taiga.Controller, taiga.PageMixin)
             @q.all([@.loadWikiLinks(), @.loadWiki()])
 
     delete: ->
-        # TODO: i18n
-        title = "Delete Wiki Page"
-        message = unslugify(@scope.wiki.slug)
+        @translate("WIKI.DELETE_LIGHTBOX_TITLE").then (title) =>
+            message = unslugify(@scope.wiki.slug)
 
-        @confirm.askOnDelete(title, message).then (finish) =>
-            onSuccess = =>
-                finish()
-                ctx = {project: @scope.projectSlug}
-                @location.path(@navUrls.resolve("project-wiki", ctx))
-                @confirm.notify("success")
+            @confirm.askOnDelete(title, message).then (finish) =>
+                onSuccess = =>
+                    finish()
+                    ctx = {project: @scope.projectSlug}
+                    @location.path(@navUrls.resolve("project-wiki", ctx))
+                    @confirm.notify("success")
 
-            onError = =>
-                finish(false)
-                @confirm.notify("error")
+                onError = =>
+                    finish(false)
+                    @confirm.notify("error")
 
-            @repo.remove(@scope.wiki).then onSuccess, onError
+                @repo.remove(@scope.wiki).then onSuccess, onError
 
 module.controller("WikiDetailController", WikiDetailController)
 

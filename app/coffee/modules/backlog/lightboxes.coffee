@@ -29,7 +29,7 @@ module = angular.module("taigaBacklog")
 ## Creare/Edit Sprint Lightbox Directive
 #############################################################################
 
-CreateEditSprint = ($repo, $confirm, $rs, $rootscope, lightboxService, $loading) ->
+CreateEditSprint = ($repo, $confirm, $rs, $rootscope, lightboxService, $loading, $translate) ->
     link = ($scope, $el, attrs) ->
         hasErrors = false
         createSprint = true
@@ -86,21 +86,20 @@ CreateEditSprint = ($repo, $confirm, $rs, $rootscope, lightboxService, $loading)
                     $confirm.notify("light-error", data.__all__[0])
 
         remove = ->
-            #TODO: i18n
-            title = "Delete sprint"
-            message = $scope.sprint.name
+            $translate("LIGHTBOX.DELETE_SPRINT.TITLE").then (title) =>
+                message = $scope.sprint.name
 
-            $confirm.askOnDelete(title, message).then (finish) =>
-                onSuccess = ->
-                    finish()
-                    $scope.milestonesCounter -= 1
-                    lightboxService.close($el)
-                    $rootscope.$broadcast("sprintform:remove:success")
+                $confirm.askOnDelete(title, message).then (finish) =>
+                    onSuccess = ->
+                        finish()
+                        $scope.milestonesCounter -= 1
+                        lightboxService.close($el)
+                        $rootscope.$broadcast("sprintform:remove:success")
 
-                onError = ->
-                    finish(false)
-                    $confirm.notify("error")
-                $repo.remove($scope.sprint).then(onSuccess, onError)
+                    onError = ->
+                        finish(false)
+                        $confirm.notify("error")
+                    $repo.remove($scope.sprint).then(onSuccess, onError)
 
         $scope.$on "sprintform:create", (event, projectId) ->
             form = $el.find("form").checksley()
@@ -129,11 +128,17 @@ CreateEditSprint = ($repo, $confirm, $rs, $rootscope, lightboxService, $loading)
 
             lastSprintNameDom = $el.find(".last-sprint-name")
             if lastSprint?.name?
-                lastSprintNameDom.html(" last sprint is <strong> #{lastSprint.name} ;-) </strong>")
+                $translate("LIGHTBOX.ADD_EDIT_SPRINT.LAST_SPRINT_NAME", {"lastSprint": lastSprint.name}).then (text) =>
+                    lastSprintNameDom.html(text)
 
             $el.find(".delete-sprint").addClass("hidden")
-            $el.find(".title").text("New sprint") #TODO i18n
-            $el.find(".button-green").text("Create") #TODO i18n
+
+            $translate("LIGHTBOX.ADD_EDIT_SPRINT.TITLE")
+                .then (text) => $el.find(".title").text(text)
+
+            $translate("COMMON.CREATE")
+                .then (text) => $el.find(".button-green").text(text)
+
             lightboxService.open($el)
             $el.find(".sprint-name").focus()
             $el.find(".last-sprint-name").removeClass("disappear")
@@ -146,8 +151,10 @@ CreateEditSprint = ($repo, $confirm, $rs, $rootscope, lightboxService, $loading)
                 $scope.sprint.estimated_finish = moment($scope.sprint.estimated_finish).format("DD MMM YYYY")
 
             $el.find(".delete-sprint").removeClass("hidden")
-            $el.find(".title").text("Edit sprint") #TODO i18n
-            $el.find(".button-green").text("Save") #TODO i18n
+            $translate(["BACKLOG.EDIT_SPRINT", "COMMON.SAVE"]).then (editSprint, save) ->
+                $el.find(".title").text(editSprint)
+                $el.find(".button-green").text(save)
+
             lightboxService.open($el)
             $el.find(".sprint-name").focus().select()
             $el.find(".last-sprint-name").addClass("disappear")
@@ -178,6 +185,7 @@ module.directive("tgLbCreateEditSprint", [
     "$tgResources",
     "$rootScope",
     "lightboxService"
-    "$tgLoading"
+    "$tgLoading",
+    "$translate",
     CreateEditSprint
 ])

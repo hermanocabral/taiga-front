@@ -25,7 +25,7 @@ debounce = @.taiga.debounce
 
 module = angular.module("taigaRelatedTasks", [])
 
-RelatedTaskRowDirective = ($repo, $compile, $confirm, $rootscope, $loading, $template) ->
+RelatedTaskRowDirective = ($repo, $compile, $confirm, $rootscope, $loading, $template, $translate) ->
     templateView = $template.get("task/related-task-row.html", true)
     templateEdit = $template.get("task/related-task-row-edit.html", true)
 
@@ -79,20 +79,19 @@ RelatedTaskRowDirective = ($repo, $compile, $confirm, $rootscope, $loading, $tem
                 $el.find('input').focus().select()
 
             $el.on "click", ".delete-task", (event) ->
-                #TODO: i18n
-                task = $model.$modelValue
-                title = "Delete Task"
-                message = task.subject
+                $translate("TASK.TITLE_DELETE_ACTION").then (title) =>
+                    task = $model.$modelValue
+                    message = task.subject
 
-                $confirm.askOnDelete(title, message).then (finish) ->
-                    promise = $repo.remove(task)
-                    promise.then ->
-                        finish()
-                        $confirm.notify("success")
-                        $scope.$emit("related-tasks:delete")
+                    $confirm.askOnDelete(title, message).then (finish) ->
+                        promise = $repo.remove(task)
+                        promise.then ->
+                            finish()
+                            $confirm.notify("success")
+                            $scope.$emit("related-tasks:delete")
 
-                    promise.then null, ->
-                        $confirm.notify("error")
+                        promise.then null, ->
+                            $confirm.notify("error")
 
         $scope.$watch $attrs.ngModel, (val) ->
             return if not val
@@ -109,7 +108,7 @@ RelatedTaskRowDirective = ($repo, $compile, $confirm, $rootscope, $loading, $tem
 
     return {link:link, require:"ngModel"}
 
-module.directive("tgRelatedTaskRow", ["$tgRepo", "$compile", "$tgConfirm", "$rootScope", "$tgLoading", "$tgTemplate", RelatedTaskRowDirective])
+module.directive("tgRelatedTaskRow", ["$tgRepo", "$compile", "$tgConfirm", "$rootScope", "$tgLoading", "$tgTemplate", "$translate", RelatedTaskRowDirective])
 
 RelatedTaskCreateFormDirective = ($repo, $compile, $confirm, $tgmodel, $loading, $analytics, $template) ->
     template = $template.get("task/related-task-create-form.html", true)

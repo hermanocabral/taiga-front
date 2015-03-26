@@ -82,22 +82,21 @@ WikiNavDirective = ($tgrepo, $log, $location, $confirm, $navUrls, $analytics, $l
                 target = angular.element(event.currentTarget)
                 linkId = target.parents('.wiki-link').data('id')
 
-                # TODO: i18n
-                title = "Delete Wiki Link"
-                message = $scope.wikiLinks[linkId].title
+                @translate("WIKI.DELETE_LIGHTBOX_TITLE").then (title) =>
+                    message = $scope.wikiLinks[linkId].title
 
-                $confirm.askOnDelete(title, message).then (finish) =>
-                    promise = $tgrepo.remove($scope.wikiLinks[linkId])
-                    promise.then ->
-                        promise = $ctrl.loadWikiLinks()
+                    $confirm.askOnDelete(title, message).then (finish) =>
+                        promise = $tgrepo.remove($scope.wikiLinks[linkId])
                         promise.then ->
-                            finish()
-                            render($scope.wikiLinks)
+                            promise = $ctrl.loadWikiLinks()
+                            promise.then ->
+                                finish()
+                                render($scope.wikiLinks)
+                            promise.then null, ->
+                                finish()
                         promise.then null, ->
-                            finish()
-                    promise.then null, ->
-                        finish(false)
-                        $confirm.notify("error")
+                            finish(false)
+                            $confirm.notify("error")
 
             $el.on "keyup", ".new input", (event) ->
                 event.preventDefault()

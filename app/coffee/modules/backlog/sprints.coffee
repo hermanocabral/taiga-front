@@ -141,7 +141,7 @@ module.directive("tgBacklogSprintHeader", ["$tgNavUrls", "$tgTemplate", "$compil
 ## Toggle Closed Sprints Directive
 #############################################################################
 
-ToggleExcludeClosedSprintsVisualization = ($rootscope, $loading) ->
+ToggleExcludeClosedSprintsVisualization = ($rootscope, $loading, $translate) ->
     excludeClosedSprints = true
 
     link = ($scope, $el, $attrs) ->
@@ -167,14 +167,14 @@ ToggleExcludeClosedSprintsVisualization = ($rootscope, $loading) ->
         $scope.$on "closed-sprints:reloaded", (ctx, sprints) =>
             $loading.finish(loadingElm)
 
-            #TODO: i18n
             if sprints.length > 0
-                text = "Hide closed sprints"
+                key = "BACKLOG.SPRINTS.ACTION_HIDE_CLOSED_SPRINTS"
             else
-                text = "Show closed sprints"
+                key = "BACKLOG.SPRINTS.ACTION_SHOW_CLOSED_SPRINTS"
 
-            $el.find(".text").text(text)
+            $translate(key).then (text) =>
+                $el.find(".text").text(text)
 
     return {link: link}
 
-module.directive("tgBacklogToggleClosedSprintsVisualization", ["$rootScope", "$tgLoading", ToggleExcludeClosedSprintsVisualization])
+module.directive("tgBacklogToggleClosedSprintsVisualization", ["$rootScope", "$tgLoading", "$translate", ToggleExcludeClosedSprintsVisualization])
